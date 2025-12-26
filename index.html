@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דימיטרי גז - טכנאי גז מוסמך רמה 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap');
+        
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid #f97316;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        .price-tag {
+            background: linear-gradient(45deg, #f97316, #fb923c);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-gradient text-white pb-20 pt-10 px-6 relative overflow-hidden">
+        <div class="absolute top-0 left-0 opacity-10 pointer-events-none">
+            <i class="fas fa-fire-alt text-[400px]"></i>
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <nav class="flex justify-between items-center mb-16">
+                <div class="text-2xl font-black tracking-tighter">
+                    <span class="text-orange-500">DIMITRI</span> GAS
+                </div>
+                <div class="hidden md:block text-sm font-bold opacity-80 uppercase tracking-widest">
+                    <i class="fas fa-map-marker-alt text-orange-500 ml-2"></i>
+                    אזור המרכז והשפלה
+                </div>
+            </nav>
+
+            <div class="text-center">
+                <div class="inline-block bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold mb-6">
+                    טכנאי גז מוסמך רמה 2
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">דימיטרי דובוב</h1>
+                <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-10">
+                    מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון. 
+                    עבודה בטיחותית, יסודית ומקצועית ללא פשרות.
+                </p>
+
+                <a href="tel:0537250109" class="inline-flex flex-col items-center group">
+                    <div class="bg-white text-slate-900 px-8 py-4 rounded-2xl font-black text-3xl shadow-2xl group-hover:bg-orange-500 group-hover:text-white transition-all flex items-center gap-4">
+                        <i class="fas fa-phone-alt animate-bounce"></i>
+                        053-7250109
+                    </div>
+                    <span class="mt-4 text-orange-400 font-bold tracking-widest uppercase">לחץ לחיוג מהיר</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="max-w-6xl mx-auto px-6 -mt-16 relative z-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                    <i class="fas fa-route"></i>
+                </div>
+                <h3 class="text-xl font-black mb-3 text-slate-800">העברת נקודת גז</h3>
+                <p class="text-slate-500 leading-relaxed">תכנון וביצוע העברת נקודות גז במטבח או במרפסת לפי כל תקני הבטיחות המחמירים.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                    <i class="fas fa-hot-tub"></i>
+                </div>
+                <h3 class="text-xl font-black mb-3 text-slate-800">מחממי מים (מַקְרוֹ ורינאיי)</h3>
+                <p class="text-slate-500 leading-relaxed">התקנה מקצועית של מחממי מים מהירים בגז מבית Macro ו-Rinnai למים חמים ללא הגבלה.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+                <div class="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3 class="text-xl font-black mb-3 text-slate-800">תיקון מחממים</h3>
+                <p class="text-slate-500 leading-relaxed">תיקון תקלות מורכבות במחממי מים מבית ברטה (Beretta), מַקְרוֹ ורינאיי ע"י טכנאי רמה 2.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+                <div class="w-14 h-14 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3 class="text-xl font-black mb-3 text-slate-800">תשתיות גז</h3>
+                <p class="text-slate-500 leading-relaxed">הקמת תשתיות גז לבניינים חדשים, בתים פרטיים ותעשייה עם דגש על איכות החומרים.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+                <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                    <i class="fas fa-search-location"></i>
+                </div>
+                <h3 class="text-xl font-black mb-3 text-slate-800">איתור דליפות</h3>
+                <p class="text-slate-500 leading-relaxed">איתור דליפות גז באמצעות מכשור דיגיטלי מתקדם ומתן פתרון מיידי למניעת סכנה.</p>
+            </div>
+
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                    <i class="fas fa-blender"></i>
+                </div>
+                <h3 class="text-xl font-black mb-3 text-slate-800">התקנת ותיקון כיריים</h3>
+                <p class="text-slate-500 leading-relaxed">התקנת כיריים חדשות, המרת דיזות ותיקון להבות לביצועים אופטימליים במטבח.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black text-slate-900 mb-4">מחירון עבודות גז</h2>
+            <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <span class="text-lg font-bold text-slate-700">עלות ביקור טכנאי</span>
+                <span class="text-2xl font-black text-orange-500">₪250 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+            </div>
+            <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <span class="text-lg font-bold text-slate-700">התקנת מחמם מים מַקְרוֹ</span>
+                <span class="text-2xl font-black text-orange-500">₪3,000 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+            </div>
+            <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <span class="text-lg font-bold text-slate-700">התקנת מחמם רינאיי</span>
+                <span class="text-2xl font-black text-orange-500">₪4,200 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+            </div>
+            <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <span class="text-lg font-bold text-slate-700">ברז ניתוק מהיר</span>
+                <span class="text-2xl font-black text-orange-500">₪450 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+            </div>
+            <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <span class="text-lg font-bold text-slate-700">התקנת חגז ביתי</span>
+                <span class="text-2xl font-black text-orange-500">₪400 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+            </div>
+            <div class="flex items-center justify-between bg-orange-50 p-6 rounded-2xl border border-orange-200 shadow-sm">
+                <span class="text-lg font-bold text-orange-800 italic underline">ייעוץ טלפוני מקצועי</span>
+                <span class="text-2xl font-black text-orange-600 uppercase">בחינם!</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="hero-gradient text-white py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-black mb-6 italic">דימיטרי גז - מומחה גז רמה 2</h2>
+            <p class="text-slate-400 mb-8 font-bold">זמין עבורכם לכל שאלה, תקלה או פרויקט באזור המרכז והשפלה.</p>
+            <a href="tel:0537250109" class="text-4xl font-black text-orange-500 tracking-widest hover:text-white transition-colors">
+                053-7250109
+            </a>
+            <div class="mt-12 pt-8 border-t border-white/5 text-xs text-slate-500">
+                © 2024 דימיטרי דובוב - כל הזכויות שמורות. עבודות גז מבוצעות ע"י טכנאי מוסמך בלבד.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
