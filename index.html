@@ -3,44 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דימיטרי גז - טכנאי גז מוסמך רמה 2</title>
+    <title>דימיטרי גז - Dimitri Gas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap');
         
-        body {
-            font-family: 'Heebo', sans-serif;
-            background-color: #f8fafc;
-        }
-
-        .hero-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-
-        .service-card {
-            transition: all 0.3s ease;
-            border-bottom: 4px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 4px solid #f97316;
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-        }
-
-        .price-tag {
-            background: linear-gradient(45deg, #f97316, #fb923c);
-        }
-
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+        body { font-family: 'Heebo', sans-serif; background-color: #f8fafc; transition: all 0.3s ease; }
+        .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .service-card { transition: all 0.3s ease; border-bottom: 4px solid transparent; }
+        .service-card:hover { transform: translateY(-10px); border-bottom: 4px solid #f97316; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        
+        /* עיצוב בורר השפות */
+        .lang-switcher { position: fixed; top: 20px; z-index: 50; }
+        html[dir="rtl"] .lang-switcher { left: 20px; }
+        html[dir="ltr"] .lang-switcher { right: 20px; }
     </style>
 </head>
 <body>
+
+    <div class="lang-switcher">
+        <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-white/90 backdrop-blur-sm border border-slate-300 rounded-xl p-2 text-sm font-bold shadow-xl outline-none cursor-pointer hover:bg-white transition-all">
+            <option value="he">🇮🇱 עברית</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="en">🇺🇸 English</option>
+        </select>
+    </div>
 
     <header class="hero-gradient text-white pb-20 pt-10 px-6 relative overflow-hidden">
         <div class="absolute top-0 left-0 opacity-10 pointer-events-none">
@@ -52,20 +40,19 @@
                 <div class="text-2xl font-black tracking-tighter">
                     <span class="text-orange-500">DIMITRI</span> GAS
                 </div>
-                <div class="hidden md:block text-sm font-bold opacity-80 uppercase tracking-widest">
+                <div id="area-tag" class="hidden md:block text-sm font-bold opacity-80 uppercase tracking-widest">
                     <i class="fas fa-map-marker-alt text-orange-500 ml-2"></i>
                     אזור המרכז והשפלה
                 </div>
             </nav>
 
             <div class="text-center">
-                <div class="inline-block bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold mb-6">
+                <div id="rank-badge" class="inline-block bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold mb-6">
                     טכנאי גז מוסמך רמה 2
                 </div>
-                <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">דימיטרי דובוב</h1>
-                <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-10">
-                    מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון. 
-                   עבודה יסודית ומקצועית.
+                <h1 id="name-title" class="text-5xl md:text-7xl font-black mb-6 tracking-tight">דימיטרי דובוב</h1>
+                <p id="hero-desc" class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-10">
+                    מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון. עבודה יסודית ומקצועית.
                 </p>
 
                 <a href="tel:0537250109" class="inline-flex flex-col items-center group">
@@ -73,7 +60,7 @@
                         <i class="fas fa-phone-alt animate-bounce"></i>
                         053-7250109
                     </div>
-                    <span class="mt-4 text-orange-400 font-bold tracking-widest uppercase">לחץ לחיוג מהיר</span>
+                    <span id="call-action" class="mt-4 text-orange-400 font-bold tracking-widest uppercase">לחץ לחיוג מהיר</span>
                 </a>
             </div>
         </div>
@@ -81,102 +68,221 @@
 
     <section class="max-w-6xl mx-auto px-6 -mt-16 relative z-20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
-                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all" id="card-1">
+                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6 text-2xl mx-0">
                     <i class="fas fa-route"></i>
                 </div>
-                <h3 class="text-xl font-black mb-3 text-slate-800">העברת נקודת גז</h3>
-                <p class="text-slate-500 leading-relaxed">תכנון וביצוע העברת נקודות גז במטבח או במרפסת לפי כל תקני הבטיחותים.</p>
+                <h3 id="serv-t-1" class="text-xl font-black mb-3 text-slate-800">העברת נקודת גז</h3>
+                <p id="serv-d-1" class="text-slate-500 leading-relaxed">תכנון וביצוע העברת נקודות גז במטבח או במרפסת לפי כל תקני הבטיחותים.</p>
             </div>
 
-            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all" id="card-2">
                 <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
                     <i class="fas fa-hot-tub"></i>
                 </div>
-                <h3 class="text-xl font-black mb-3 text-slate-800">מחממי מים (מַקְרוֹ ורינאיי)</h3>
-                <p class="text-slate-500 leading-relaxed">התקנה מקצועית של מחממי מים מהירים בגז מבית Macro ו-Rinnai למים חמים ללא הגבלה.</p>
+                <h3 id="serv-t-2" class="text-xl font-black mb-3 text-slate-800">מחממי מים (מַקְרוֹ ורינאיי)</h3>
+                <p id="serv-d-2" class="text-slate-500 leading-relaxed">התקנה מקצועית של מחממי מים מהירים בגז מבית Macro ו-Rinnai למים חמים ללא הגבלה.</p>
             </div>
 
-            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all" id="card-3">
                 <div class="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
                     <i class="fas fa-tools"></i>
                 </div>
-                <h3 class="text-xl font-black mb-3 text-slate-800">תיקון מחממים</h3>
-                <p class="text-slate-500 leading-relaxed">תיקון תקלות  במחממי מים מבית ברטה (Beretta), מַקְרוֹ ורינאיי .</p>
+                <h3 id="serv-t-3" class="text-xl font-black mb-3 text-slate-800">תיקון מחממים</h3>
+                <p id="serv-d-3" class="text-slate-500 leading-relaxed">תיקון תקלות במחממי מים מבית ברטה (Beretta), מַקְרוֹ ורינאיי .</p>
             </div>
 
-            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all" id="card-4">
                 <div class="w-14 h-14 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center mb-6 text-2xl">
                     <i class="fas fa-network-wired"></i>
                 </div>
-                <h3 class="text-xl font-black mb-3 text-slate-800">תשתיות גז</h3>
-                <p class="text-slate-500 leading-relaxed">הקמת תשתיות גז לבתים פרטיים ועסקים.</p>
+                <h3 id="serv-t-4" class="text-xl font-black mb-3 text-slate-800">תשתיות גז</h3>
+                <p id="serv-d-4" class="text-slate-500 leading-relaxed">הקמת תשתיות גז לבתים פרטיים ועסקים.</p>
             </div>
 
-            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all" id="card-5">
                 <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
                     <i class="fas fa-search-location"></i>
                 </div>
-                <h3 class="text-xl font-black mb-3 text-slate-800">איתור דליפות</h3>
-                <p class="text-slate-500 leading-relaxed">איתור דליפות גז ומתן פתרון מיידי למניעת סכנה.</p>
+                <h3 id="serv-t-5" class="text-xl font-black mb-3 text-slate-800">איתור דליפות</h3>
+                <p id="serv-d-5" class="text-slate-500 leading-relaxed">איתור דליפות גז ומתן פתרון מיידי למניעת סכנה.</p>
             </div>
 
-            <div class="service-card bg-white p-8 rounded-3xl shadow-xl">
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all" id="card-6">
                 <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
                     <i class="fas fa-blender"></i>
                 </div>
-                <h3 class="text-xl font-black mb-3 text-slate-800">התקנת ותיקון כיריים</h3>
-                <p class="text-slate-500 leading-relaxed">התקנת כיריים חדשות, המרת דיזות ותיקון להבות לביצועים אופטימליים במטבח.</p>
+                <h3 id="serv-t-6" class="text-xl font-black mb-3 text-slate-800">התקנת ותיקון כיריים</h3>
+                <p id="serv-d-6" class="text-slate-500 leading-relaxed">התקנת כיריים חדשות, המרת דיזות ותיקון להבות לביצועים אופטימליים במטבח.</p>
             </div>
         </div>
     </section>
 
     <section class="py-24 px-6 max-w-6xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-black text-slate-900 mb-4">מחירון עבודות גז</h2>
+            <h2 id="price-main-title" class="text-4xl font-black text-slate-900 mb-4">מחירון עבודות גז</h2>
             <div class="w-20 h-1 bg-orange-500 mx-auto"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <span class="text-lg font-bold text-slate-700">עלות ביקור טכנאי</span>
-                <span class="text-2xl font-black text-orange-500">₪250 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+                <span id="pr-1" class="text-lg font-bold text-slate-700">עלות ביקור טכנאי</span>
+                <span class="text-2xl font-black text-orange-500">₪250 <small id="vat-1" class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
             </div>
             <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <span class="text-lg font-bold text-slate-700">התקנת מחמם מים מַקְרוֹ</span>
-                <span class="text-2xl font-black text-orange-500">₪3,000 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+                <span id="pr-2" class="text-lg font-bold text-slate-700">התקנת מחמם מים מַקְרוֹ</span>
+                <span class="text-2xl font-black text-orange-500">₪3,000 <small id="vat-2" class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
             </div>
             <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <span class="text-lg font-bold text-slate-700">התקנת מחמם רינאיי</span>
-                <span class="text-2xl font-black text-orange-500">₪4,200 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+                <span id="pr-3" class="text-lg font-bold text-slate-700">התקנת מחמם רינאיי</span>
+                <span class="text-2xl font-black text-orange-500">₪4,200 <small id="vat-3" class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
             </div>
             <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <span class="text-lg font-bold text-slate-700">ברז ניתוק מהיר</span>
-                <span class="text-2xl font-black text-orange-500">₪450 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+                <span id="pr-4" class="text-lg font-bold text-slate-700">ברז ניתוק מהיר</span>
+                <span class="text-2xl font-black text-orange-500">₪450 <small id="vat-4" class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
             </div>
             <div class="flex items-center justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <span class="text-lg font-bold text-slate-700">התקנת חגז ביתי</span>
-                <span class="text-2xl font-black text-orange-500">₪400 <small class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
+                <span id="pr-5" class="text-lg font-bold text-slate-700">התקנת חגז ביתי</span>
+                <span class="text-2xl font-black text-orange-500">₪400 <small id="vat-5" class="text-xs text-slate-400 font-normal">כולל מע"מ</small></span>
             </div>
             <div class="flex items-center justify-between bg-orange-50 p-6 rounded-2xl border border-orange-200 shadow-sm">
-                <span class="text-lg font-bold text-orange-800 italic underline">ייעוץ טלפוני מקצועי</span>
-                <span class="text-2xl font-black text-orange-600 uppercase">בחינם!</span>
+                <span id="pr-6" class="text-lg font-bold text-orange-800 italic underline">ייעוץ טלפוני מקצועי</span>
+                <span id="free-tag" class="text-2xl font-black text-orange-600 uppercase">בחינם!</span>
             </div>
         </div>
     </section>
 
     <footer class="hero-gradient text-white py-16 px-6">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-black mb-6 italic">דימיטרי גז - מומחה גז רמה 2</h2>
-               <p class="text-slate-400 mb-8 font-bold">זמין עבורכם לכל שאלה באזור המרכז והשפלה.</p>
+            <h2 id="footer-title" class="text-3xl font-black mb-6 italic">דימיטרי גז - מומחה גז רמה 2</h2>
+            <p id="footer-desc" class="text-slate-400 mb-8 font-bold">זמין עבורכם לכל שאלה באזור המרכז והשפלה.</p>
             <a href="tel:0537250109" class="text-4xl font-black text-orange-500 tracking-widest hover:text-white transition-colors">
                 053-7250109
             </a>
-            <div class="mt-12 pt-8 border-t border-white/5 text-xs text-slate-500">
+            <div id="copyright" class="mt-12 pt-8 border-t border-white/5 text-xs text-slate-500">
                 © 2024 דימיטרי דובוב - כל הזכויות שמורות. עבודות גז מבוצעות ע"י טכנאי מוסמך בלבד.
             </div>
         </div>
     </footer>
 
+    <script>
+        const translations = {
+            he: {
+                dir: "rtl",
+                align: "right",
+                area: "אזור המרכז והשפלה",
+                rank: "טכנאי גז מוסמך רמה 2",
+                name: "דימיטרי דובוב",
+                hero: "מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון. עבודה יסודית ומקצועית.",
+                call: "לחץ לחיוג מהיר",
+                priceMain: "מחירון עבודות גז",
+                vat: "כולל מע\"מ",
+                free: "בחינם!",
+                footerTitle: "דימיטרי גז - מומחה גז רמה 2",
+                footerDesc: "זמין עבורכם לכל שאלה באזור המרכז והשפלה.",
+                copy: "© 2024 דימיטרי דובוב - כל הזכויות שמורות. עבודות גז מבוצעות ע\"י טכנאי מוסמך בלבד.",
+                prices: ["עלות ביקור טכנאי", "התקנת מחמם מים מַקְרוֹ", "התקנת מחמם רינאיי", "ברז ניתוק מהיר", "התקנת חגז ביתי", "ייעוץ טלפוני מקצועי"],
+                servT: ["העברת נקודת גז", "מחממי מים (מַקְרוֹ ורינאיי)", "תיקון מחממים", "תשתיות גז", "איתור דליפות", "התקנת ותיקון כיריים"],
+                servD: [
+                    "תכנון וביצוע העברת נקודות גז במטבח או במרפסת לפי כל תקני הבטיחותים.",
+                    "התקנה מקצועית של מחממי מים מהירים בגז מבית Macro ו-Rinnai למים חמים ללא הגבלה.",
+                    "תיקון תקלות במחממי מים מבית ברטה (Beretta), מַקְרוֹ ורינאיי.",
+                    "הקמת תשתיות גז לבתים פרטיים ועסקים.",
+                    "איתור דליפות גז ומתן פתרון מיידי למניעת סכנה.",
+                    "התקנת כיריים חדשות, המרת דיזות ותיקון להבות לביצועים אופטימליים במטבח."
+                ]
+            },
+            ru: {
+                dir: "ltr",
+                align: "left",
+                area: "Центр и Шфела",
+                rank: "Газовый техник 2-й категории",
+                name: "Димитрий Дубов",
+                hero: "Специалист по газовым системам и водонагревателям с более чем 20-летним опытом. Основательная и профессиональная работа.",
+                call: "Позвонить сейчас",
+                priceMain: "Прайс-лист услуг",
+                vat: "вкл. НДС",
+                free: "БЕСПЛАТНО!",
+                footerTitle: "Димитрий Газ - Эксперт 2-й категории",
+                footerDesc: "Доступен для любых вопросов в районе Центра и Шфелы.",
+                copy: "© 2024 Димитрий Дубов - Все права защищены. Газовые работы выполняются только сертифицированным техником.",
+                prices: ["Стоимость визита", "Установка водонагревателя Macro", "Установка водонагревателя Rinnai", "Установка крана быстрой отсечки", "Установка домашнего Хагаза", "Профессиональная консультация"],
+                servT: ["Перенос газовой точки", "Водонагреватели (Macro и Rinnai)", "Ремонт нагревателей", "Газовая инфраструктура", "Поиск утечек", "Установка и ремонт плит"],
+                servD: [
+                    "Планирование и перенос газовых точек на кухне или балконе согласно стандартам безопасности.",
+                    "Профессиональная установка проточных газовых водонагревателей Macro и Rinnai.",
+                    "Устранение неисправностей в водонагревателях Beretta, Macro и Rinnai.",
+                    "Создание газовой инфраструктуры для частных домов и бизнеса.",
+                    "Обнаружение утечек газа и немедленное решение для предотвращения опасности.",
+                    "Установка новых плит, замена форсунок и ремонт горелок для оптимальной работы."
+                ]
+            },
+            en: {
+                dir: "ltr",
+                align: "left",
+                area: "Center & Shfela Area",
+                rank: "Certified Gas Technician Level 2",
+                name: "Dimitri Dubov",
+                hero: "Expert in gas systems and water heaters with over 20 years of experience. Thorough and professional work.",
+                call: "Call Now",
+                priceMain: "Gas Services Price List",
+                vat: "Inc. VAT",
+                free: "FREE!",
+                footerTitle: "Dimitri Gas - Expert Level 2",
+                footerDesc: "Available for any questions in the Center and Shfela area.",
+                copy: "© 2024 Dimitri Dubov - All rights reserved. Gas works are performed by a certified technician only.",
+                prices: ["Technician Visit Cost", "Macro Water Heater Installation", "Rinnai Water Heater Installation", "Quick Disconnect Valve", "Home 'Hagaz' Installation", "Professional Phone Consultation"],
+                servT: ["Gas Point Relocation", "Water Heaters (Macro & Rinnai)", "Heater Repair", "Gas Infrastructure", "Leak Detection", "Stove Install & Repair"],
+                servD: [
+                    "Planning and executing gas point relocation in kitchen or balcony per safety standards.",
+                    "Professional installation of rapid gas water heaters from Macro and Rinnai.",
+                    "Repairing faults in water heaters from Beretta, Macro, and Rinnai.",
+                    "Setting up gas infrastructure for private homes and businesses.",
+                    "Detecting gas leaks and providing immediate solutions to prevent danger.",
+                    "Installing new stoves, converting nozzles, and repairing burners for optimal performance."
+                ]
+            }
+        };
+
+        function changeLanguage(lang) {
+            const data = translations[lang];
+            document.documentElement.dir = data.dir;
+            document.documentElement.lang = lang;
+
+            // עדכון טקסטים כלליים
+            document.getElementById('area-tag').innerHTML = `<i class="fas fa-map-marker-alt text-orange-500 ml-2"></i> ${data.area}`;
+            document.getElementById('rank-badge').innerText = data.rank;
+            document.getElementById('name-title').innerText = data.name;
+            document.getElementById('hero-desc').innerText = data.hero;
+            document.getElementById('call-action').innerText = data.call;
+            document.getElementById('price-main-title').innerText = data.priceMain;
+            document.getElementById('free-tag').innerText = data.free;
+            document.getElementById('footer-title').innerText = data.footerTitle;
+            document.getElementById('footer-desc').innerText = data.footerDesc;
+            document.getElementById('copyright').innerText = data.copy;
+
+            // עדכון שירותים ומחירון
+            for(let i=1; i<=6; i++) {
+                if(document.getElementById(`serv-t-${i}`)) document.getElementById(`serv-t-${i}`).innerText = data.servT[i-1];
+                if(document.getElementById(`serv-d-${i}`)) document.getElementById(`serv-d-${i}`).innerText = data.servD[i-1];
+                if(document.getElementById(`pr-${i}`)) document.getElementById(`pr-${i}`).innerText = data.prices[i-1];
+                if(document.getElementById(`vat-${i}`)) document.getElementById(`vat-${i}`).innerText = data.vat;
+                
+                // עדכון יישור טקסט בכרטיסים
+                const card = document.getElementById(`card-${i}`);
+                if(card) {
+                    card.style.textAlign = data.align;
+                }
+            }
+
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang') || 'he';
+            document.getElementById('lang-select').value = savedLang;
+            changeLanguage(savedLang);
+        };
+    </script>
 </body>
 </html>
