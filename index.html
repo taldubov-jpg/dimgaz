@@ -17,6 +17,7 @@
         .lang-switcher { position: fixed; top: 20px; z-index: 50; }
         html[dir="rtl"] .lang-switcher { left: 20px; }
         html[dir="ltr"] .lang-switcher { right: 20px; }
+        .icon-placeholder { display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body>
@@ -70,55 +71,61 @@
 
     <section class="max-w-6xl mx-auto px-6 -mt-12 pb-24 relative z-20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- 1 -->
+            <!-- 1. העברת נקודת גז -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6 text-2xl mx-0">
-                    <i class="fas fa-route"></i>
+                <div class="icon-placeholder w-14 h-14 bg-orange-100 rounded-2xl mb-6">
+                   <!-- כאן תוכל להוסיף תמונה (איור) של העברת צינור גז -->
+                   <i class="fas fa-route text-orange-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-1" class="text-xl font-black mb-3 text-slate-800">העברת נקודת גז</h3>
                 <p id="serv-d-1" class="text-slate-500 leading-relaxed">תכנון וביצוע העברת נקודות גז במטבח או במרפסת לפי כל תקני הבטיחות.</p>
             </div>
 
-            <!-- 2 -->
+            <!-- 2. מחממי מים -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                    <i class="fas fa-hot-tub"></i>
+                <div class="icon-placeholder w-14 h-14 bg-blue-100 rounded-2xl mb-6">
+                    <!-- כאן תוכל להוסיף תמונה (איור) של מחמם מים -->
+                    <i class="fas fa-hot-tub text-blue-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-2" class="text-xl font-black mb-3 text-slate-800">מחממי מים (מַקְרוֹ ורינאיי)</h3>
                 <p id="serv-d-2" class="text-slate-500 leading-relaxed">התקנה מקצועית של מחממי מים מהירים בגז מבית Macro ו-Rinnai למים חמים ללא הגבלה.</p>
             </div>
 
-            <!-- 3 -->
+            <!-- 3. תיקון מחממים -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                    <i class="fas fa-tools"></i>
+                <div class="icon-placeholder w-14 h-14 bg-red-100 rounded-2xl mb-6">
+                   <!-- כאן תוכל להוסיף תמונה (איור) של תיקון / מפתח שוודי -->
+                   <i class="fas fa-tools text-red-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-3" class="text-xl font-black mb-3 text-slate-800">תיקון מחממים</h3>
                 <p id="serv-d-3" class="text-slate-500 leading-relaxed">תיקון תקלות במחממי מים מבית ברטה (Beretta), מַקְרוֹ ורינאיי.</p>
             </div>
 
-            <!-- 4 -->
+            <!-- 4. תשתיות גז -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="w-14 h-14 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                    <i class="fas fa-network-wired"></i>
+                <div class="icon-placeholder w-14 h-14 bg-slate-100 rounded-2xl mb-6">
+                   <!-- כאן תוכל להוסיף תמונה (איור) של תשתית / רשת צינורות -->
+                   <i class="fas fa-network-wired text-slate-700 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-4" class="text-xl font-black mb-3 text-slate-800">תשתיות גז</h3>
                 <p id="serv-d-4" class="text-slate-500 leading-relaxed">הקמת תשתיות גז לבתים פרטיים ועסקים בהתאם לתקן.</p>
             </div>
 
-            <!-- 5 -->
+            <!-- 5. איתור דליפות -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                    <i class="fas fa-search-location"></i>
+                <div class="icon-placeholder w-14 h-14 bg-amber-100 rounded-2xl mb-6">
+                   <!-- כאן תוכל להוסיף תמונה (איור) של זכוכית מגדלת -->
+                   <i class="fas fa-search-location text-amber-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-5" class="text-xl font-black mb-3 text-slate-800">איתור דליפות</h3>
                 <p id="serv-d-5" class="text-slate-500 leading-relaxed">איתור דליפות גז ומתן פתרון מיידי ומקצועי למניעת סכנה.</p>
             </div>
 
-            <!-- 6 -->
+            <!-- 6. התקנת כיריים -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                    <i class="fas fa-blender"></i>
+                <div class="icon-placeholder w-14 h-14 bg-emerald-100 rounded-2xl mb-6">
+                   <!-- כאן תוכל להוסיף תמונה (איור) של כיריים / סיר בישול -->
+                   <i class="fas fa-blender text-emerald-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-6" class="text-xl font-black mb-3 text-slate-800">התקנת ותיקון כיריים</h3>
                 <p id="serv-d-6" class="text-slate-500 leading-relaxed">התקנת כיריים חדשות, המרת דיזות ותיקון להבות לביצועים אופטימליים.</p>
