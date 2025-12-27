@@ -17,8 +17,7 @@
         .lang-switcher { position: fixed; top: 20px; z-index: 50; }
         html[dir="rtl"] .lang-switcher { left: 20px; }
         html[dir="ltr"] .lang-switcher { right: 20px; }
-        .icon-placeholder { display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .service-icon { width: 100%; height: 100%; object-fit: cover; }
+        .icon-box { display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body>
@@ -72,55 +71,55 @@
 
     <section class="max-w-6xl mx-auto px-6 -mt-12 pb-24 relative z-20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- 1. העברת נקודת גז -->
+            <!-- 1. העברת נקודת גז (אייקון צינורות/ניתוב) -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="icon-placeholder w-14 h-14 bg-orange-100 rounded-2xl mb-6">
-                   <img src="placeholder-route-icon.png" alt="Icon for gas point relocation" class="service-icon">
+                <div class="icon-box w-14 h-14 bg-orange-100 rounded-2xl mb-6">
+                   <i class="fas fa-route text-orange-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-1" class="text-xl font-black mb-3 text-slate-800">העברת נקודת גז</h3>
                 <p id="serv-d-1" class="text-slate-500 leading-relaxed">תכנון וביצוע העברת נקודות גז במטבח או במרפסת לפי כל תקני הבטיחות.</p>
             </div>
 
-            <!-- 2. מחממי מים -->
+            <!-- 2. מחממי מים (אייקון דוד/אמבטיה) -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="icon-placeholder w-14 h-14 bg-blue-100 rounded-2xl mb-6">
-                    <img src="placeholder-heater-icon.png" alt="Icon for water heaters" class="service-icon">
+                <div class="icon-box w-14 h-14 bg-blue-100 rounded-2xl mb-6">
+                    <i class="fas fa-hot-tub text-blue-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-2" class="text-xl font-black mb-3 text-slate-800">מחממי מים (מַקְרוֹ ורינאיי)</h3>
                 <p id="serv-d-2" class="text-slate-500 leading-relaxed">התקנה מקצועית של מחממי מים מהירים בגז מבית Macro ו-Rinnai למים חמים ללא הגבלה.</p>
             </div>
 
-            <!-- 3. תיקון מחממים -->
+            <!-- 3. תיקון מחממים (אייקון כלי עבודה) -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="icon-placeholder w-14 h-14 bg-red-100 rounded-2xl mb-6">
-                   <img src="placeholder-tools-icon.png" alt="Icon for repairs" class="service-icon">
+                <div class="icon-box w-14 h-14 bg-red-100 rounded-2xl mb-6">
+                   <i class="fas fa-tools text-red-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-3" class="text-xl font-black mb-3 text-slate-800">תיקון מחממים</h3>
                 <p id="serv-d-3" class="text-slate-500 leading-relaxed">תיקון תקלות במחממי מים מבית ברטה (Beretta), מַקְרוֹ ורינאיי.</p>
             </div>
 
-            <!-- 4. תשתיות גז -->
+            <!-- 4. תשתיות גז (אייקון רשת/חיבורים) -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="icon-placeholder w-14 h-14 bg-slate-100 rounded-2xl mb-6">
-                   <img src="placeholder-network-icon.png" alt="Icon for gas infrastructure" class="service-icon">
+                <div class="icon-box w-14 h-14 bg-slate-100 rounded-2xl mb-6">
+                   <i class="fas fa-network-wired text-slate-700 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-4" class="text-xl font-black mb-3 text-slate-800">תשתיות גז</h3>
                 <p id="serv-d-4" class="text-slate-500 leading-relaxed">הקמת תשתיות גז לבתים פרטיים ועסקים בהתאם לתקן.</p>
             </div>
 
-            <!-- 5. איתור דליפות -->
+            <!-- 5. איתור דליפות (אייקון זכוכית מגדלת/מיקום) -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="icon-placeholder w-14 h-14 bg-amber-100 rounded-2xl mb-6">
-                   <img src="placeholder-leak-icon.png" alt="Icon for leak detection" class="service-icon">
+                <div class="icon-box w-14 h-14 bg-amber-100 rounded-2xl mb-6">
+                   <i class="fas fa-search-location text-amber-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-5" class="text-xl font-black mb-3 text-slate-800">איתור דליפות</h3>
                 <p id="serv-d-5" class="text-slate-500 leading-relaxed">איתור דליפות גז ומתן פתרון מיידי ומקצועי למניעת סכנה.</p>
             </div>
 
-            <!-- 6. התקנת כיריים -->
+            <!-- 6. התקנת כיריים (אייקון כיריים/בישול) -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="icon-placeholder w-14 h-14 bg-emerald-100 rounded-2xl mb-6">
-                   <img src="placeholder-stove-icon.png" alt="Icon for stove installation" class="service-icon">
+                <div class="icon-box w-14 h-14 bg-emerald-100 rounded-2xl mb-6">
+                   <i class="fas fa-blender text-emerald-600 text-2xl"></i>
                 </div>
                 <h3 id="serv-t-6" class="text-xl font-black mb-3 text-slate-800">התקנת ותיקון כיריים</h3>
                 <p id="serv-d-6" class="text-slate-500 leading-relaxed">התקנת כיריים חדשות, המרת דיזות ותיקון להבות לביצועים אופטימליים.</p>
