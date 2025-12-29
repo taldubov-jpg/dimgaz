@@ -11,7 +11,7 @@
         
         body { font-family: 'Heebo', sans-serif; background-color: #f8fafc; transition: all 0.3s ease; }
         .hero-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        .service-card { transition: all 0.3s ease; border-bottom: 4px solid transparent; }
+        .service-card { transition: all 0.3s ease; border-bottom: 4px solid transparent; height: 100%; }
         .service-card:hover { transform: translateY(-10px); border-bottom: 4px solid #f97316; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
         
         .lang-switcher { position: fixed; top: 20px; z-index: 50; }
@@ -31,10 +31,6 @@
     </div>
 
     <header class="hero-gradient text-white pb-24 pt-10 px-6 relative overflow-hidden">
-        <div class="absolute top-0 left-0 opacity-10 pointer-events-none">
-            <i class="fas fa-fire-alt text-[400px]"></i>
-        </div>
-
         <div class="max-w-6xl mx-auto relative z-10">
             <nav class="flex justify-between items-center mb-16">
                 <div class="text-2xl font-black tracking-tighter">
@@ -71,58 +67,49 @@
 
     <section class="max-w-6xl mx-auto px-6 -mt-12 pb-24 relative z-20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- 1. העברת נקודת גז -->
+            <!-- 1. מחממי מים -->
+            <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
+                <div class="icon-box w-14 h-14 bg-blue-100 rounded-2xl mb-6">
+                    <i class="fas fa-faucet-dotted text-blue-600 text-2xl"></i>
+                </div>
+                <h3 id="serv-t-1" class="text-xl font-black mb-3 text-slate-800">מחממי מים</h3>
+                <p id="serv-d-1" class="text-slate-500 leading-relaxed">התקנה ותיקון מחממי מים על גז.</p>
+            </div>
+
+            <!-- 2. העברת נקודה -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
                 <div class="icon-box w-14 h-14 bg-orange-100 rounded-2xl mb-6">
                    <i class="fas fa-route text-orange-600 text-2xl"></i>
                 </div>
-                <h3 id="serv-t-1" class="text-xl font-black mb-3 text-slate-800">העברת נקודת גז</h3>
-                <p id="serv-d-1" class="text-slate-500 leading-relaxed">תכנון וביצוע העברת נקודות גז במטבח או במרפסת לפי כל תקני הבטיחות.</p>
+                <h3 id="serv-t-2" class="text-xl font-black mb-3 text-slate-800">העברת נקודת גז</h3>
+                <p id="serv-d-2" class="text-slate-500 leading-relaxed">העברת נקודת גז - תכנון וביצוע העברת נקודות גז.</p>
             </div>
 
-            <!-- 2. מחממי מים -->
-            <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="icon-box w-14 h-14 bg-blue-100 rounded-2xl mb-6">
-                    <i class="fas fa-hot-tub text-blue-600 text-2xl"></i>
-                </div>
-                <h3 id="serv-t-2" class="text-xl font-black mb-3 text-slate-800">מחממי מים (מַקְרוֹ ורינאיי)</h3>
-                <p id="serv-d-2" class="text-slate-500 leading-relaxed">התקנה מקצועית של מחממי מים מהירים בגז מבית Macro ו-Rinnai למים חמים ללא הגבלה.</p>
-            </div>
-
-            <!-- 3. תיקון מחממים -->
-            <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="icon-box w-14 h-14 bg-red-100 rounded-2xl mb-6">
-                   <i class="fas fa-tools text-red-600 text-2xl"></i>
-                </div>
-                <h3 id="serv-t-3" class="text-xl font-black mb-3 text-slate-800">תיקון מחממים</h3>
-                <p id="serv-d-3" class="text-slate-500 leading-relaxed">תיקון תקלות במחממי מים מבית ברטה (Beretta), מַקְרוֹ ורינאיי.</p>
-            </div>
-
-            <!-- 4. תשתיות גז -->
+            <!-- 3. תשתיות גז -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
                 <div class="icon-box w-14 h-14 bg-slate-100 rounded-2xl mb-6">
-                   <i class="fas fa-network-wired text-slate-700 text-2xl"></i>
+                   <i class="fas fa-house-chimney text-slate-700 text-2xl"></i>
                 </div>
-                <h3 id="serv-t-4" class="text-xl font-black mb-3 text-slate-800">תשתיות גז</h3>
-                <p id="serv-d-4" class="text-slate-500 leading-relaxed">הקמת תשתיות גז לבתים פרטיים ועסקים בהתאם לתקן.</p>
+                <h3 id="serv-t-3" class="text-xl font-black mb-3 text-slate-800">תשתיות גז</h3>
+                <p id="serv-d-3" class="text-slate-500 leading-relaxed">הקמת תשתיות גז לבתים פרטיים ועסקים לפי תקן 158.</p>
             </div>
 
-            <!-- 5. איתור דליפות -->
+            <!-- 4. איתור דליפות -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
-                <div class="icon-box w-14 h-14 bg-amber-100 rounded-2xl mb-6">
-                   <i class="fas fa-search-location text-amber-600 text-2xl"></i>
+                <div class="icon-box w-14 h-14 bg-red-100 rounded-2xl mb-6">
+                   <i class="fas fa-sensor-fire text-red-600 text-2xl"></i>
                 </div>
-                <h3 id="serv-t-5" class="text-xl font-black mb-3 text-slate-800">איתור דליפות</h3>
-                <p id="serv-d-5" class="text-slate-500 leading-relaxed">איתור דליפות גז ומתן פתרון מיידי ומקצועי למניעת סכנה.</p>
+                <h3 id="serv-t-4" class="text-xl font-black mb-3 text-slate-800">איתור דליפות</h3>
+                <p id="serv-d-4" class="text-slate-500 leading-relaxed">איתור דליפות גז ומתן פתרון מיידי ומקצועי.</p>
             </div>
 
-            <!-- 6. התקנת כיריים -->
+            <!-- 5. התקנת מכשירים -->
             <div class="service-card bg-white p-8 rounded-3xl shadow-xl text-right transition-all">
                 <div class="icon-box w-14 h-14 bg-emerald-100 rounded-2xl mb-6">
                    <i class="fas fa-blender text-emerald-600 text-2xl"></i>
                 </div>
-                <h3 id="serv-t-6" class="text-xl font-black mb-3 text-slate-800">התקנת ותיקון כיריים</h3>
-                <p id="serv-d-6" class="text-slate-500 leading-relaxed">התקנת כיריים חדשות, המרת דיזות ותיקון להבות לביצועים אופטימליים.</p>
+                <h3 id="serv-t-5" class="text-xl font-black mb-3 text-slate-800">התקנת מכשירים</h3>
+                <p id="serv-d-5" class="text-slate-500 leading-relaxed">התקנת כיריים וכל מכשירי הגז.</p>
             </div>
         </div>
     </section>
@@ -139,73 +126,75 @@
                 name: "דימיטרי דובוב",
                 hero: "מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון. עבודה יסודית ומקצועית.",
                 consult: "ניתן ליצור קשר לייעוץ טכני ראשוני ללא עלות",
-                serv1_t: "העברת נקודת גז",
-                serv1_d: "תכנון וביצוע העברת נקודות גז במטבח או במרפסת לפי כל תקני הבטיחות.",
-                serv2_t: "מחממי מים (מַקְרוֹ ורינאיי)",
-                serv2_d: "התקנה מקצועית של מחממי מים מהירים בגז מבית Macro ו-Rinnai למים חמים ללא הגבלה.",
-                serv3_t: "תיקון מחממים",
-                serv3_d: "תיקון תקלות במחממי מים מבית ברטה (Beretta), מַקְרוֹ ורינאיי.",
-                serv4_t: "תשתיות גז",
-                serv4_d: "הקמת תשתיות גז לבתים פרטיים ועסקים בהתאם לתקן.",
-                serv5_t: "איתור דליפות",
-                serv5_d: "איתור דליפות גז ומתן פתרון מיידי ומקצועי למניעת סכנה.",
-                serv6_t: "התקנת ותיקון כיריים",
-                serv6_d: "התקנת כיריים חדשות, המרת דיזות ותיקון להבות לביצועים אופטימליים."
-            },
-            ru: {
-                area: "Центр и Шфела",
-                rank: "Сертифицированный техник (Level 2)",
-                name: "Дмитрий Дубов",
-                hero: "Специалист по газовым системам и водонагревателям с опытом более 20 лет. Профессиональная работа.",
-                consult: "Свяжитесь для бесплатной первичной технической консультации",
-                serv1_t: "Перенос газовой точки",
-                serv1_d: "Планирование и перенос газовых точек на кухне или балконе по всем стандартам безопасности.",
-                serv2_t: "Водонагреватели (Macro и Rinnai)",
-                serv2_d: "Профессиональная установка проточных газовых водонагревателей для неограниченной горячей воды.",
-                serv3_t: "Ремонт нагревателей",
-                serv3_d: "Устранение неисправностей в водонагревателях Beretta, Macro и Rinnai.",
-                serv4_t: "Газовая инфраструктура",
-                serv4_d: "Создание газовой инфраструктуры для частных домов и предприятий.",
-                serv5_t: "Поиск утечек",
-                serv5_d: "Обнаружение утечек газа и немедленное профессиональное решение проблемы.",
-                serv6_t: "Установка и ремонт плит",
-                serv6_d: "Установка новых плит, замена форсунок и ремонт конфорок для оптимальной работы."
+                serv1_t: "מחממי מים",
+                serv1_d: "התקנה ותיקון מחממי מים על גז.",
+                serv2_t: "העברת נקודת גז",
+                serv2_d: "העברת נקודת גז - תכנון וביצוע העברת נקודות גז.",
+                serv3_t: "תשתיות גז",
+                serv3_d: "הקמת תשתיות גז לבתים פרטיים ועסקים לפי תקן 158.",
+                serv4_t: "איתור דליפות",
+                serv4_d: "איתור דליפות גז ומתן פתרון מיידי ומקצועי.",
+                serv5_t: "התקנת מכשירים",
+                serv5_d: "התקנת כיריים וכל מכשירי הגז."
             },
             en: {
-                area: "Central Israel & Shfela",
+                area: "Central & Shephelah Region",
                 rank: "Certified Gas Technician Level 2",
                 name: "Dimitri Dubov",
-                hero: "Specialist in gas systems and water heaters with over 20 years of experience. Professional service.",
+                hero: "Expert in gas systems and water heaters with over 20 years of experience. Professional and thorough work.",
                 consult: "Contact us for a free initial technical consultation",
-                serv1_t: "Gas Point Relocation",
-                serv1_d: "Planning and relocating gas points in kitchens or balconies according to safety standards.",
-                serv2_t: "Water Heaters (Macro & Rinnai)",
-                serv2_d: "Professional installation of rapid gas water heaters for unlimited hot water.",
-                serv3_t: "Heater Repair",
-                serv3_d: "Fixing malfunctions in Beretta, Macro, and Rinnai water heaters.",
-                serv4_t: "Gas Infrastructure",
-                serv4_d: "Setting up gas infrastructure for private homes and businesses.",
-                serv5_t: "Leak Detection",
-                serv5_d: "Gas leak detection and immediate professional solutions.",
-                serv6_t: "Stove Installation & Repair",
-                serv6_d: "Installing new stoves, replacing nozzles, and repairing flames for optimal performance."
+                serv1_t: "Water Heaters",
+                serv1_d: "Installation and repair of gas water heaters.",
+                serv2_t: "Gas Point Relocation",
+                serv2_d: "Gas point relocation - planning and execution.",
+                serv3_t: "Gas Infrastructure",
+                serv3_d: "Gas infrastructure for private homes and businesses (Standard 158).",
+                serv4_t: "Leak Detection",
+                serv4_d: "Gas leak detection and immediate professional solutions.",
+                serv5_t: "Appliance Installation",
+                serv5_d: "Installation of stovetops and all gas appliances."
+            },
+            ru: {
+                area: "Центральный район и Шфела",
+                rank: "Дипломированный техник по газу 2-го уровня",
+                name: "Дмитрий Дубов",
+                hero: "Специалист по газовым системам и водонагревателям с более чем 20-летним опытом. Качественная и профессиональная работа.",
+                consult: "Бесплатная первичная техническая консультация",
+                serv1_t: "Водонагреватели",
+                serv1_d: "Установка и ремонт газовых водонагревателей.",
+                serv2_t: "Перенос газовых точек",
+                serv2_d: "Перенос газовых точек - планирование и выполнение.",
+                serv3_t: "Газовая инфраструктура",
+                serv3_d: "Прокладка газовой инфраструктуры для частных домов и бизнеса (Стандарт 158).",
+                serv4_t: "Поиск утечек",
+                serv4_d: "Обнаружение утечек газа и немедленное профессиональное решение.",
+                serv5_t: "Установка приборов",
+                serv5_d: "Установка варочных панелей и любых газовых приборов."
             }
         };
 
         function changeLanguage(lang) {
+            const t = translations[lang];
+            
+            // Update direction
             document.documentElement.dir = (lang === 'he') ? 'rtl' : 'ltr';
             document.documentElement.lang = lang;
-            
-            const t = translations[lang];
+
+            // Update Header & Hero
             document.getElementById('area-tag').innerHTML = `<i class="fas fa-map-marker-alt text-orange-500 ${lang === 'he' ? 'ml-2' : 'mr-2'}"></i> ${t.area}`;
             document.getElementById('rank-badge').innerText = t.rank;
             document.getElementById('name-title').innerText = t.name;
             document.getElementById('hero-desc').innerText = t.hero;
-            document.getElementById('consult-text').querySelector('span').innerText = t.consult;
-            
-            for(let i=1; i<=6; i++) {
+            document.querySelector('#consult-text span').innerText = t.consult;
+
+            // Update Services
+            for(let i=1; i<=5; i++) {
                 document.getElementById(`serv-t-${i}`).innerText = t[`serv${i}_t`];
                 document.getElementById(`serv-d-${i}`).innerText = t[`serv${i}_d`];
+                
+                // Adjust text alignment for English/Russian
+                const card = document.getElementById(`serv-t-${i}`).parentElement;
+                card.style.textAlign = (lang === 'he') ? 'right' : 'left';
             }
         }
     </script>
