@@ -3,174 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דימיטרי גז - טכנאי גז מוסמך</title>
+    <title>דימיטרי גז - פתרונות גז מתקדמים 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="cdnjs.cloudflare.com">
     <link href="fonts.googleapis.com" rel="stylesheet">
     <style>
         body { 
             font-family: 'Heebo', sans-serif; 
-            background-color: #fcfcfd; 
-            color: #1e293b;
+            background-color: #020617; 
+            color: #f8fafc;
+            overflow-x: hidden;
         }
         
-        .hero-section {
-            background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
+        /* אפקט תנועה לטקסט הייעוץ */
+        .scrolling-text {
+            white-space: nowrap;
+            animation: scroll 20s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        .consult-banner {
+            background: rgba(249, 115, 22, 0.1);
+            border-top: 1px solid rgba(249, 115, 22, 0.2);
+            border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+            overflow: hidden;
+            padding: 12px 0;
+        }
+
+        /* שדרוג הריבועים (Bento) */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: 160px;
+            gap: 1.5rem;
+        }
+
+        .bento-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 2.5rem;
+            padding: 2.2rem;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             position: relative;
             overflow: hidden;
-        }
-
-        /* עיצוב כרטיסיות השירות */
-        .service-card {
-            background: white;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-            border-color: #f97316;
-        }
-
-        .icon-container {
-            width: 60px;
-            height: 60px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 16px;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
-        .service-card:hover .icon-container {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        /* עיצוב כפתור טלפון */
-        .phone-button {
-            background: #f97316;
-            color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4);
-        }
-
-        .phone-button:hover {
-            background: #ea580c;
-            transform: scale(1.05);
-            box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.5);
-        }
-
-        /* התאמת כיוון שפה */
-        .lang-switcher {
+        .bento-card::before {
+            content: '';
             position: absolute;
-            top: 2rem;
-            left: 2rem;
-            z-index: 100;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
-        [dir="ltr"] .lang-switcher {
-            left: auto;
-            right: 2rem;
+        .bento-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(249, 115, 22, 0.5);
+            box-shadow: 0 20px 40px -10px rgba(249, 115, 22, 0.2);
+        }
+
+        .bento-card:hover::before { opacity: 1; }
+
+        /* גדלים */
+        .card-large { grid-column: span 3; grid-row: span 2; }
+        .card-wide { grid-column: span 3; grid-row: span 1; }
+        .card-tall { grid-column: span 2; grid-row: span 2; }
+
+        .icon-overlay {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.2;
+            transition: all 0.4s ease;
+        }
+
+        .bento-card:hover .icon-overlay {
+            opacity: 0.9;
+            transform: scale(1.1) rotate(-10deg);
+        }
+
+        .lang-switcher {
+            position: fixed; top: 1.5rem; left: 1.5rem; z-index: 100;
         }
     </style>
 </head>
 <body>
 
-    <!-- Language Switcher -->
     <div class="lang-switcher">
-        <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-lg px-3 py-2 text-sm font-medium outline-none cursor-pointer hover:bg-white/20 transition-all">
-            <option value="he" class="text-slate-900">🇮🇱 עברית</option>
-            <option value="ru" class="text-slate-900">🇷🇺 Русский</option>
-            <option value="en" class="text-slate-900">🇺🇸 English</option>
+        <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-slate-900/80 border border-slate-700 text-white rounded-xl px-4 py-2 text-sm outline-none cursor-pointer backdrop-blur-md">
+            <option value="he">🇮🇱 עברית</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="en">🇺🇸 English</option>
         </select>
     </div>
 
-    <!-- Hero Section -->
-    <header class="hero-section text-white pt-24 pb-32 px-6">
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <div id="rank-badge" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-500 text-sm font-bold mb-8 uppercase tracking-widest">
-                <i class="fas fa-check-circle"></i>
-                טכנאי גז מוסמך רמה 2
+    <header class="text-white pt-24 pb-12 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <div id="rank-badge" class="inline-block bg-orange-500/10 border border-orange-500/30 text-orange-500 px-6 py-2 rounded-full text-sm font-bold mb-8 uppercase tracking-widest">
+                <i class="fas fa-certificate mr-2"></i> טכנאי גז מוסמך רמה 2
             </div>
-            
-            <h1 id="name-title" class="text-6xl md:text-8xl font-black mb-6 tracking-tighter">
+            <h1 id="name-title" class="text-7xl md:text-9xl font-black mb-6 tracking-tighter">
                 דימיטרי <span class="text-orange-500">דובוב</span>
             </h1>
-            
-            <p id="hero-desc" class="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון. מספק פתרונות הנדסיים ובטיחותיים ברמה הגבוהה ביותר.
+            <p id="hero-desc" class="text-xl md:text-3xl text-slate-400 max-w-3xl mx-auto mb-12 font-light">
+                מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון.
             </p>
-
-            <div class="flex flex-col items-center gap-6">
-                <a href="tel:0537250109" class="phone-button px-10 py-5 rounded-2xl font-black text-3xl flex items-center gap-4">
-                    <i class="fas fa-phone-alt"></i>
-                    053-7250109
-                </a>
-                <div id="consult-text" class="flex items-center gap-2 text-slate-400 text-sm md:text-base">
-                    <i class="fas fa-shield-halved text-emerald-500"></i>
-                    שירות מקצועי, אמין ובטיחותי ללא פשרות
-                </div>
-            </div>
+            <a href="tel:0537250109" class="bg-orange-500 hover:bg-orange-600 text-white inline-flex items-center gap-4 px-12 py-6 rounded-3xl text-4xl font-black transition-all hover:scale-105 shadow-2xl shadow-orange-500/20">
+                <i class="fas fa-phone-alt animate-pulse"></i>
+                053-7250109
+            </a>
         </div>
     </header>
 
-    <!-- Services Section -->
-    <section class="max-w-6xl mx-auto px-6 -mt-16 pb-24 relative z-20">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- באנר ייעוץ נע -->
+    <div class="consult-banner mb-20">
+        <div class="scrolling-text">
+            <span class="mx-10 text-orange-400 font-bold text-lg"><i class="fas fa-star mr-2"></i> שיחת ייעוץ טכני ללא עלות </span>
+            <span class="mx-10 text-orange-400 font-bold text-lg"><i class="fas fa-star mr-2"></i> שיחת ייעוץ טכני ללא עלות </span>
+            <span class="mx-10 text-orange-400 font-bold text-lg"><i class="fas fa-star mr-2"></i> שיחת ייעוץ טכני ללא עלות </span>
+            <span class="mx-10 text-orange-400 font-bold text-lg"><i class="fas fa-star mr-2"></i> שיחת ייעוץ טכני ללא עלות </span>
+        </div>
+    </div>
+
+    <section class="max-w-7xl mx-auto px-6 pb-32">
+        <div class="bento-grid">
             
             <!-- 1. מחממי מים -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
-                <div class="icon-container bg-blue-50 text-blue-600">
-                    <i class="fas fa-fire-burner text-3xl"></i>
-                </div>
-                <h3 id="serv-t-1" class="text-2xl font-bold mb-4 text-slate-800">מחממי מים</h3>
-                <p id="serv-d-1" class="text-slate-500 leading-relaxed text-lg">התקנה ותיקון מחממי מים על גז בצורה מקצועית ובטוחה.</p>
+            <div class="bento-card card-large">
+                <i class="fas fa-fire-alt icon-overlay"></i>
+                <h3 id="serv-t-1" class="text-4xl font-black mb-4">מחממי מים</h3>
+                <p id="serv-d-1" class="text-slate-400 text-xl leading-relaxed">התקנה ותיקון מחממי מים על גז בצורה מקצועית.</p>
             </div>
 
             <!-- 2. העברת נקודה -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
-                <div class="icon-container bg-orange-50 text-orange-600">
-                    <i class="fas fa-draw-polygon text-3xl"></i>
-                </div>
-                <h3 id="serv-t-2" class="text-2xl font-bold mb-4 text-slate-800">העברת נקודת גז</h3>
-                <p id="serv-d-2" class="text-slate-500 leading-relaxed text-lg">תכנון אדריכלי וביצוע מדויק של העברת נקודות גז בבית.</p>
+            <div class="bento-card card-tall">
+                <i class="fas fa-map-pin icon-overlay"></i>
+                <h3 id="serv-t-2" class="text-2xl font-bold mb-3">העברת נקודת גז</h3>
+                <p id="serv-d-2" class="text-slate-400">תכנון וביצוע העברת נקודות גז בבית ובמטבח.</p>
             </div>
 
             <!-- 3. תשתיות -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
-                <div class="icon-container bg-slate-100 text-slate-700">
-                    <i class="fas fa-shovels text-3xl"></i>
-                </div>
-                <h3 id="serv-t-3" class="text-2xl font-bold mb-4 text-slate-800">תשתיות גז</h3>
-                <p id="serv-d-3" class="text-slate-500 leading-relaxed text-lg">הקמת תשתיות גז מקיפות לבתים ועסקים לפי תקן 158.</p>
+            <div class="bento-card card-wide">
+                <i class="fas fa-tools icon-overlay"></i>
+                <h3 id="serv-t-3" class="text-2xl font-bold mb-2">תשתיות גז</h3>
+                <p id="serv-d-3" class="text-slate-400">הקמת תשתיות גז לבתים פרטיים ועסקים לפי תקן 158.</p>
             </div>
 
             <!-- 4. איתור דליפות -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
-                <div class="icon-container bg-red-50 text-red-600">
-                    <i class="fas fa-magnifying-glass-chart text-3xl"></i>
-                </div>
-                <h3 id="serv-t-4" class="text-2xl font-bold mb-4 text-slate-800">איתור דליפות</h3>
-                <p id="serv-d-4" class="text-slate-500 leading-relaxed text-lg">זיהוי דליפות באמצעות ציוד מתקדם ומתן מענה חירום מיידי.</p>
+            <div class="bento-card card-wide">
+                <i class="fas fa-search-location icon-overlay"></i>
+                <h3 id="serv-t-4" class="text-2xl font-bold mb-2">איתור דליפות גז</h3>
+                <p id="serv-d-4" class="text-slate-400">איתור דליפות גז ומתן פתרון מיידי ומקצועי למניעת סכנה.</p>
             </div>
 
             <!-- 5. התקנת מכשירים -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
-                <div class="icon-container bg-emerald-50 text-emerald-600">
-                    <i class="fas fa-kitchen-set text-3xl"></i>
-                </div>
-                <h3 id="serv-t-5" class="text-2xl font-bold mb-4 text-slate-800">התקנת מכשירים</h3>
-                <p id="serv-d-5" class="text-slate-500 leading-relaxed text-lg">התקנה בטיחותית של כיריים וכל סוגי מכשירי הגז הביתיים.</p>
+            <div class="bento-card card-small" style="grid-column: span 2;">
+                <i class="fas fa-blender icon-overlay"></i>
+                <h3 id="serv-t-5" class="text-xl font-bold mb-1">התקנת מכשירים</h3>
+                <p id="serv-d-5" class="text-slate-400 text-sm">התקנת כיריים וכל מכשירי הגז.</p>
             </div>
 
         </div>
     </section>
 
-    <footer class="py-12 text-center text-slate-400 text-sm tracking-widest border-t border-slate-100">
-        <p>© 2025 DIMITRI GAS | PROFESSIONAL SAFETY SOLUTIONS</p>
+    <footer class="py-12 text-center text-slate-500 border-t border-slate-900">
+        <p>© 2025 Dimitri Gas | Professional Gas Expert</p>
     </footer>
 
     <script>
@@ -178,50 +190,50 @@
             he: {
                 rank: "טכנאי גז מוסמך רמה 2",
                 name: "דימיטרי דובוב",
-                hero: "מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון. מספק פתרונות הנדסיים ובטיחותיים ברמה הגבוהה ביותר.",
-                consult: "שירות מקצועי, אמין ובטיחותי ללא פשרות",
+                hero: "מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון.",
+                consult: "שיחת ייעוץ טכני ללא עלות",
                 serv1_t: "מחממי מים",
-                serv1_d: "התקנה ותיקון מחממי מים על גז בצורה מקצועית ובטוחה.",
+                serv1_d: "התקנה ותיקון מחממי מים על גז בצורה מקצועית.",
                 serv2_t: "העברת נקודת גז",
-                serv2_d: "תכנון אדריכלי וביצוע מדויק של העברת נקודות גז בבית.",
+                serv2_d: "תכנון וביצוע העברת נקודות גז בבית ובמטבח.",
                 serv3_t: "תשתיות גז",
-                serv3_d: "הקמת תשתיות גז מקיפות לבתים ועסקים לפי תקן 158.",
-                serv4_t: "איתור דליפות",
-                serv4_d: "זיהוי דליפות באמצעות ציוד מתקדם ומתן מענה חירום מיידי.",
+                serv3_d: "הקמת תשתיות גז לבתים פרטיים ועסקים לפי תקן 158.",
+                serv4_t: "איתור דליפות גז",
+                serv4_d: "איתור דליפות גז ומתן פתרון מיידי ומקצועי למניעת סכנה.",
                 serv5_t: "התקנת מכשירים",
-                serv5_d: "התקנה בטיחותית של כיריים וכל סוגי מכשירי הגז הביתיים."
+                serv5_d: "התקנת כיריים וכל מכשירי הגז."
             },
             en: {
-                rank: "Certified Gas Technician Level 2",
-                name: "Dimitri Dubov",
-                hero: "Expert in gas systems and water heaters with 20+ years of experience. Providing top-tier safety and engineering solutions.",
-                consult: "Professional, reliable, and uncompromised safety service",
+                rank: "Certified Gas Tech Level 2",
+                name: "DIMITRI DUBOV",
+                hero: "Specialist in gas systems and water heaters with 20+ years of experience.",
+                consult: "Free technical consultation call",
                 serv1_t: "Water Heaters",
-                serv1_d: "Professional installation and repair of gas-powered water heaters.",
-                serv2_t: "Gas Point Relocation",
-                serv2_d: "Architectural planning and precise execution of gas point relocation.",
+                serv1_d: "Professional installation and repair of gas water heaters.",
+                serv2_t: "Gas Relocation",
+                serv2_d: "Planning and execution of gas point relocation.",
                 serv3_t: "Gas Infrastructure",
-                serv3_d: "Complete gas infrastructure for homes and businesses (Standard 158).",
+                serv3_d: "Gas infrastructure for homes and businesses (Standard 158).",
                 serv4_t: "Leak Detection",
-                serv4_d: "Advanced leak detection and immediate emergency response solutions.",
-                serv5_t: "Appliance Installation",
-                serv5_d: "Safe installation of stovetops and all types of domestic gas appliances."
+                serv4_d: "Gas leak detection and immediate professional solutions.",
+                serv5_t: "Installations",
+                serv5_d: "Installation of stovetops and all gas appliances."
             },
             ru: {
-                rank: "Лицензированный техник по газу 2-го уровня",
-                name: "Дмитрий Дубов",
-                hero: "Специалист по газовым системам с более чем 20-летним опытом. Профессиональные инженерные решения и гарантия безопасности.",
-                consult: "Профессиональный и надежный сервис без компромиссов",
+                rank: "Техник по газу 2-го уровня",
+                name: "ДМИТРИЙ ДУБОВ",
+                hero: "Специалист по газовым системам с опытом более 20 лет.",
+                consult: "Бесплатная техническая консультация",
                 serv1_t: "Водонагреватели",
-                serv1_d: "Профессиональная установка и ремонт газовых водонагревателей.",
-                serv2_t: "Перенос газовых точек",
-                serv2_d: "Планирование и точное выполнение переноса газовых точек в доме.",
-                serv3_t: "Газовая инфраструктура",
-                serv3_d: "Создание газовой инфраструктуры для домов и бизнеса согласно стандарту 158.",
-                serv4_t: "Поиск утечек",
-                serv4_d: "Выявление утечек с помощью современного оборудования и экстренная помощь.",
-                serv5_t: "Установка приборов",
-                serv5_d: "Безопасная установка варочных панелей и всех видов газовых приборов."
+                serv1_d: "Профессиональная установка и ремонт газовых нагревателей.",
+                serv2_t: "Перенос точек",
+                serv2_d: "Планирование и перенос газовых точек в доме.",
+                serv3_t: "Инфраструктура",
+                serv3_d: "Газовая инфраструктура по стандарту 158.",
+                serv4_t: "Утечки газа",
+                serv4_d: "Поиск утечек газа и немедленное профессиональное решение.",
+                serv5_t: "Установка",
+                serv5_d: "Установка плит и всех газовых приборов."
             }
         };
 
@@ -229,15 +241,19 @@
             const t = translations[lang];
             document.documentElement.dir = (lang === 'he') ? 'rtl' : 'ltr';
             
-            document.getElementById('rank-badge').innerHTML = `<i class="fas fa-check-circle"></i> ${t.rank}`;
+            document.getElementById('rank-badge').innerText = t.rank;
             document.getElementById('name-title').innerHTML = lang === 'he' ? `דימיטרי <span class="text-orange-500">דובוב</span>` : `DIMITRI <span class="text-orange-500">DUBOV</span>`;
             document.getElementById('hero-desc').innerText = t.hero;
-            document.getElementById('consult-text').innerText = t.consult;
+            
+            // Update scrolling text
+            const scrollingText = document.querySelector('.scrolling-text');
+            scrollingText.innerHTML = `<span class="mx-10 text-orange-400 font-bold text-lg"><i class="fas fa-star mr-2"></i> ${t.consult} </span>`.repeat(4);
 
             for(let i=1; i<=5; i++) {
                 document.getElementById(`serv-t-${i}`).innerText = t[`serv${i}_t`];
                 document.getElementById(`serv-d-${i}`).innerText = t[`serv${i}_d`];
-                document.getElementById(`serv-t-${i}`).parentElement.style.textAlign = (lang === 'he') ? 'right' : 'left';
+                const card = document.getElementById(`serv-t-${i}`).parentElement;
+                card.style.textAlign = (lang === 'he') ? 'right' : 'left';
             }
         }
     </script>
