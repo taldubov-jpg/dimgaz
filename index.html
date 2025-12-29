@@ -20,13 +20,19 @@
             overflow: hidden;
         }
 
-        /* עיצוב כרטיסיות השירות */
         .service-card {
             background: white;
             border: 1px solid rgba(226, 232, 240, 0.8);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            text-align: right; /* ברירת מחדל עברית */
         }
+
+        /* התאמת כיוון טקסט לפי שפה */
+        html[dir="ltr"] .service-card { text-align: left; }
+        html[dir="rtl"] .service-card { text-align: right; }
 
         .service-card:hover {
             transform: translateY(-8px);
@@ -49,7 +55,6 @@
             transform: scale(1.1) rotate(5deg);
         }
 
-        /* עיצוב כפתור טלפון */
         .phone-button {
             background: #f97316;
             color: white;
@@ -63,7 +68,6 @@
             box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.5);
         }
 
-        /* התאמת כיוון שפה */
         .lang-switcher {
             position: absolute;
             top: 2rem;
@@ -71,7 +75,7 @@
             z-index: 100;
         }
 
-        [dir="ltr"] .lang-switcher {
+        html[dir="ltr"] .lang-switcher {
             left: auto;
             right: 2rem;
         }
@@ -92,7 +96,6 @@
     <header class="hero-section text-white pt-24 pb-32 px-6">
         <div class="max-w-5xl mx-auto text-center relative z-10">
             <div id="rank-badge" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-500 text-sm font-bold mb-8 uppercase tracking-widest">
-                <i class="fas fa-check-circle"></i>
                 טכנאי גז מוסמך רמה 2
             </div>
             
@@ -122,48 +125,48 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <!-- 1. מחממי מים -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
+            <div class="service-card p-10 rounded-[2rem]">
                 <div class="icon-container bg-blue-50 text-blue-600">
                     <i class="fas fa-fire-burner text-3xl"></i>
                 </div>
                 <h3 id="serv-t-1" class="text-2xl font-bold mb-4 text-slate-800">מחממי מים</h3>
-                <p id="serv-d-1" class="text-slate-500 leading-relaxed text-lg">התקנה ותיקון מחממי מים על גז בצורה מקצועית ובטוחה.</p>
+                <p id="serv-d-1" class="text-slate-500 leading-relaxed text-lg">התקנת ותיקון מחממי מים על גז</p>
             </div>
 
             <!-- 2. העברת נקודה -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
+            <div class="service-card p-10 rounded-[2rem]">
                 <div class="icon-container bg-orange-50 text-orange-600">
                     <i class="fas fa-draw-polygon text-3xl"></i>
                 </div>
-                <h3 id="serv-t-2" class="text-2xl font-bold mb-4 text-slate-800">העברת נקודת גז</h3>
-                <p id="serv-d-2" class="text-slate-500 leading-relaxed text-lg">תכנון אדריכלי וביצוע מדויק של העברת נקודות גז בבית.</p>
+                <h3 id="serv-t-2" class="text-2xl font-bold mb-4 text-slate-800">נקודות גז</h3>
+                <p id="serv-d-2" class="text-slate-500 leading-relaxed text-lg">תכנון וביצוע העברת נקודות גז</p>
             </div>
 
-            <!-- 3. תשתיות -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
-                <div class="icon-container bg-slate-100 text-slate-700">
-                    <i class="fas fa-shovels text-3xl"></i>
+            <!-- 3. התקנת מכשירים -->
+            <div class="service-card p-10 rounded-[2rem]">
+                <div class="icon-container bg-emerald-50 text-emerald-600">
+                    <i class="fas fa-kitchen-set text-3xl"></i>
                 </div>
-                <h3 id="serv-t-3" class="text-2xl font-bold mb-4 text-slate-800">תשתיות גז</h3>
-                <p id="serv-d-3" class="text-slate-500 leading-relaxed text-lg">הקמת תשתיות גז מקיפות לבתים ועסקים לפי תקן 158.</p>
+                <h3 id="serv-t-3" class="text-2xl font-bold mb-4 text-slate-800">התקנת מכשירים</h3>
+                <p id="serv-d-3" class="text-slate-500 leading-relaxed text-lg">התקנת כיריים וכלל מכשירי הגז</p>
             </div>
 
             <!-- 4. איתור דליפות -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
+            <div class="service-card p-10 rounded-[2rem]">
                 <div class="icon-container bg-red-50 text-red-600">
                     <i class="fas fa-magnifying-glass-chart text-3xl"></i>
                 </div>
                 <h3 id="serv-t-4" class="text-2xl font-bold mb-4 text-slate-800">איתור דליפות</h3>
-                <p id="serv-d-4" class="text-slate-500 leading-relaxed text-lg">זיהוי דליפות באמצעות ציוד מתקדם ומתן מענה חירום מיידי.</p>
+                <p id="serv-d-4" class="text-slate-500 leading-relaxed text-lg">איתור דליפות גז ומתן פתרון מידי ומקצועי</p>
             </div>
 
-            <!-- 5. התקנת מכשירים -->
-            <div class="service-card p-10 rounded-[2rem] text-right">
-                <div class="icon-container bg-emerald-50 text-emerald-600">
-                    <i class="fas fa-kitchen-set text-3xl"></i>
+            <!-- 5. תשתיות -->
+            <div class="service-card p-10 rounded-[2rem]">
+                <div class="icon-container bg-slate-100 text-slate-700">
+                    <i class="fas fa-shovels text-3xl"></i>
                 </div>
-                <h3 id="serv-t-5" class="text-2xl font-bold mb-4 text-slate-800">התקנת מכשירים</h3>
-                <p id="serv-d-5" class="text-slate-500 leading-relaxed text-lg">התקנה בטיחותית של כיריים וכל סוגי מכשירי הגז הביתיים.</p>
+                <h3 id="serv-t-5" class="text-2xl font-bold mb-4 text-slate-800">תשתיות גז</h3>
+                <p id="serv-d-5" class="text-slate-500 leading-relaxed text-lg">הקמת תשתית גז לבתים פרטיים ועסקים לפי תקן 158</p>
             </div>
 
         </div>
@@ -181,64 +184,82 @@
                 hero: "מומחה למערכות גז ומחממי מים עם מעל ל-20 שנות ניסיון. מספק פתרונות הנדסיים ובטיחותיים ברמה הגבוהה ביותר.",
                 consult: "שירות מקצועי, אמין ובטיחותי ללא פשרות",
                 serv1_t: "מחממי מים",
-                serv1_d:"התקנה ותיקון מחממי מים עה.",
-                serv2_t: "העברת נקודת גז",
-                serv2_d: "תכנון אדריכלי וביצוע מדויק של העברת נקודות גז בבית.",
-                serv3_t: "תשתיות גז",
-                serv3_d: "הקמת תשתיות גז מקיפות לבתים ועסקים לפי תקן 158.",
+                serv1_d: "התקנת ותיקון מחממי מים על גז",
+                serv2_t: "נקודות גז",
+                serv2_d: "תכנון וביצוע העברת נקודות גז",
+                serv3_t: "התקנת מכשירים",
+                serv3_d: "התקנת כיריים וכלל מכשירי הגז",
                 serv4_t: "איתור דליפות",
-                serv4_d:"איתור דליפות גז ומתן פתרון מידי ומקצועי",
-                serv5_t: "התקנת מכשירים",
-                serv5_d: "התקנה של כיריים וכל סוגי מכשירי הגז הביתיים."
+                serv4_d: "איתור דליפות גז ומתן פתרון מידי ומקצועי",
+                serv5_t: "תשתיות גז",
+                serv5_d: "הקמת תשתית גז לבתים פרטיים ועסקים לפי תקן 158"
+            },
+            ru: {
+                rank: "Лицензированный газовый техник (уровень 2)",
+                name: "Дмитрий Дубов",
+                hero: "Специалист по газовым системам и водонагревателям с более чем 20-летним опытом. Предоставление инженерных решений и безопасности на высшем уровне.",
+                consult: "Профессиональный, надежный и безопасный сервис без компромиссов",
+                serv1_t: "Водонагреватели",
+                serv1_d: "Установка и ремонт газовых проточных водонагревателей",
+                serv2_t: "Газовые точки",
+                serv2_d: "Проектирование и перенос газовых точек",
+                serv3_t: "Установка приборов",
+                serv3_d: "Установка варочных панелей и всех видов бытовых газовых приборов",
+                serv4_t: "Утечки газа",
+                serv4_d: "Поиск утечек газа и немедленное профессиональное решение проблемы",
+                serv5_t: "Газовая инфраструктура",
+                serv5_d: "Монтаж газовой инфраструктуры для частных домов и бизнеса согласно стандарту 158"
             },
             en: {
                 rank: "Certified Gas Technician Level 2",
                 name: "Dimitri Dubov",
-                hero: "Expert in gas systems and water heaters with 20+ years of experience. Providing top-tier safety and engineering solutions.",
-                consult: "Professional, reliable, and uncompromised safety service",
+                hero: "Expert in gas systems and water heaters with over 20 years of experience. Providing top-tier engineering and safety solutions.",
+                consult: "Professional, reliable, and safe service without compromise",
                 serv1_t: "Water Heaters",
-                serv1_d: "Professional installation and repair of gas-powered water heaters.",
-                serv2_t: "Gas Point Relocation",
-                serv2_d: "Architectural planning and precise execution of gas point relocation.",
-                serv3_t: "Gas Infrastructure",
-                serv3_d: "Complete gas infrastructure for homes and businesses (Standard 158).",
+                serv1_d: "Installation and repair of gas-powered water heaters",
+                serv2_t: "Gas Points",
+                serv2_d: "Planning and execution of gas point relocation",
+                serv3_t: "Appliance Installation",
+                serv3_d: "Installation of stovetops and all types of gas appliances",
                 serv4_t: "Leak Detection",
-                serv4_d: "Advanced leak detection and immediate emergency response solutions.",
-                serv5_t: "Appliance Installation",
-                serv5_d: "Safe installation of stovetops and all types of domestic gas appliances."
-            },
-            ru: {
-                rank: "Лицензированный техник по газу 2-го уровня",
-                name: "Дмитрий Дубов",
-                hero: "Специалист по газовым системам с более чем 20-летним опытом. Профессиональные инженерные решения и гарантия безопасности.",
-                consult: "Профессиональный и надежный сервис без компромиссов",
-                serv1_t: "Водонагреватели",
-                serv1_d: "Профессиональная установка и ремонт газовых водонагревателей.",
-                serv2_t: "Перенос газовых точек",
-                serv2_d: "Планирование и точное выполнение переноса газовых точек в доме.",
-                serv3_t: "Газовая инфраструктура",
-                serv3_d: "Создание газовой инфраструктуры для домов и бизнеса согласно стандарту 158.",
-                serv4_t: "Поиск утечек",
-                serv4_d: "Выявление утечек с помощью современного оборудования и экстренная помощь.",
-                serv5_t: "Установка приборов",
-                serv5_d: "Безопасная установка варочных панелей и всех видов газовых приборов."
+                serv4_d: "Gas leak detection and providing immediate professional solutions",
+                serv5_t: "Gas Infrastructure",
+                serv5_d: "Gas infrastructure for private homes and businesses per Standard 158"
             }
         };
 
         function changeLanguage(lang) {
-            const t = translations[lang];
-            document.documentElement.dir = (lang === 'he') ? 'rtl' : 'ltr';
-            
-            document.getElementById('rank-badge').innerHTML = `<i class="fas fa-check-circle"></i> ${t.rank}`;
-            document.getElementById('name-title').innerHTML = lang === 'he' ? `דימיטרי <span class="text-orange-500">דובוב</span>` : `DIMITRI <span class="text-orange-500">DUBOV</span>`;
-            document.getElementById('hero-desc').innerText = t.hero;
-            document.getElementById('consult-text').innerText = t.consult;
+            const html = document.documentElement;
+            html.lang = lang;
+            html.dir = (lang === 'he') ? 'rtl' : 'ltr';
 
-            for(let i=1; i<=5; i++) {
-                document.getElementById(`serv-t-${i}`).innerText = t[`serv${i}_t`];
-                document.getElementById(`serv-d-${i}`).innerText = t[`serv${i}_d`];
-                document.getElementById(`serv-t-${i}`).parentElement.style.textAlign = (lang === 'he') ? 'right' : 'left';
+            const t = translations[lang];
+            
+            document.getElementById('rank-badge').innerText = t.rank;
+            
+            // עדכון השם (שמירה על ה-span הכתום בעברית)
+            if (lang === 'he') {
+                document.getElementById('name-title').innerHTML = `דימיטרי <span class="text-orange-500">דובוב</span>`;
+            } else if (lang === 'ru') {
+                document.getElementById('name-title').innerHTML = `Дмитрий <span class="text-orange-500">Дубов</span>`;
+            } else {
+                document.getElementById('name-title').innerHTML = `Dimitri <span class="text-orange-500">Dubov</span>`;
             }
+
+            document.getElementById('hero-desc').innerText = t.hero;
+            document.getElementById('consult-text').innerHTML = `<i class="fas fa-shield-halved text-emerald-500"></i> ${t.consult}`;
+            
+            // עדכון כרטיסיות השירות
+            document.getElementById('serv-t-1').innerText = t.serv1_t;
+            document.getElementById('serv-d-1').innerText = t.serv1_d;
+            document.getElementById('serv-t-2').innerText = t.serv2_t;
+            document.getElementById('serv-d-2').innerText = t.serv2_d;
+            document.getElementById('serv-t-3').innerText = t.serv3_t;
+            document.getElementById('serv-d-3').innerText = t.serv3_d;
+            document.getElementById('serv-t-4').innerText = t.serv4_t;
+            document.getElementById('serv-d-4').innerText = t.serv4_d;
+            document.getElementById('serv-t-5').innerText = t.serv5_t;
+            document.getElementById('serv-d-5').innerText = t.serv5_d;
         }
     </script>
 </body>
