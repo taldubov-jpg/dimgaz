@@ -36,22 +36,17 @@
             align-items: center;
             justify-content: center;
         }
-        .profile-pic-container {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
         .profile-pic {
-            width: 220px;
-            height: 220px;
-            border-radius: 16px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 140px;               /* הגדלתי את התמונה כמו שביקשת */
+            height: 140px;
+            border-radius: 50%;
             object-fit: cover;
             border: 4px solid #f97316;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-            transition: all 0.4s ease;
-        }
-        .profile-pic:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 60px rgba(249, 115, 22, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            z-index: 1000;
         }
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
@@ -108,19 +103,17 @@
 </head>
 <body class="antialiased">
 
+    <!-- תמונת בעל העסק – גדולה יותר, בפינה שמאלית עליונה -->
+    <img 
+        src="pic1.jpg" 
+        alt="דימיטרי דובוב - טכנאי גז" 
+        class="profile-pic">
+
     <!-- Hero -->
     <header class="hero-bg">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <div class="inline-block px-6 py-2 mb-8 rounded-full free-consult text-lg md:text-xl font-bold">
                 ייעוץ ראשוני – ללא עלות
-            </div>
-
-            <!-- תמונת בעל העסק – גדולה, מרובעת עם פינות מעוגלות, מעל הכותרת -->
-            <div class="profile-pic-container">
-                <img 
-                    src="pic1.jpg" 
-                    alt="דימיטרי דובוב - טכנאי גז" 
-                    class="profile-pic">
             </div>
 
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6 tracking-tight">
@@ -155,8 +148,45 @@
         </div>
     </header>
 
-    <!-- שירותים מרכזיים – עכשיו לפני הרישיון -->
+    <!-- יתרונות -->
     <section class="py-24 bg-[#0f172a]">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-16 text-white">למה לבחור בי?</h2>
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                <div class="card p-10 md:p-12">
+                    <div class="text-7xl mb-8">🛡️</div>
+                    <h3 class="text-3xl font-bold mb-6 accent">בטיחות ללא פשרות</h3>
+                    <p class="text-xl text-gray-300 leading-relaxed">עמידה מלאה בתקני משרד העבודה והבריאות, בדיקות לחץ ואישורי בטיחות בכל עבודה.</p>
+                </div>
+                <div class="card p-10 md:p-12">
+                    <div class="text-7xl mb-8">🏆</div>
+                    <h3 class="text-3xl font-bold mb-6 accent">ניסיון של יותר מ-25 שנה</h3>
+                    <p class="text-xl text-gray-300 leading-relaxed">אלפי לקוחות מרוצים – מבתים פרטיים, דירות, ועד מסעדות ועסקים גדולים.</p>
+                </div>
+                <div class="card p-10 md:p-12">
+                    <div class="text-7xl mb-8">⚡</div>
+                    <h3 class="text-3xl font-bold mb-6 accent">זמינות ומענה מהיר</h3>
+                    <p class="text-xl text-gray-300 leading-relaxed">תגובה תוך דקות, הגעה בזמן הקצר האפשרי, שירות חירום זמין 24/7.</p>
+                </div>
+            </div>
+
+            <!-- תעודת הרישיון -->
+            <div class="mt-20">
+                <div class="license-card mx-auto">
+                    <img 
+                        class="license-img"
+                        src="pic.jpeg"
+                        alt="רישיון טכנאי גז רמה 2 - דימיטרי דובוב">
+                    <p class="text-center text-lg mt-4 text-gray-300">
+                        רישיון טכנאי גז מוסמך רמה 2 – בתוקף
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- שירותים -->
+    <section class="py-24 bg-[#0f172a] border-t border-gray-800">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-center text-white mb-16">השירותים המרכזיים</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -176,21 +206,6 @@
                     <h3 class="text-3xl font-bold mb-6 accent">איתור ותיקון דליפות גז</h3>
                     <p class="text-xl text-gray-300 leading-relaxed">גלאי מתקדם, איתור מדויק, תיקון מיידי ושירות חירום זמין.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- תעודת הרישיון – עכשיו אחרי השירותים -->
-    <section class="py-20 bg-[#0f172a]">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <div class="license-card mx-auto">
-                <img 
-                    class="license-img"
-                    src="pic.jpeg"
-                    alt="רישיון טכנאי גז רמה 2 - דימיטרי דובוב">
-                <p class="text-center text-lg mt-4 text-gray-300">
-                    רישיון טכנאי גז מוסמך רמה 2 – בתוקף
-                </p>
             </div>
         </div>
     </section>
