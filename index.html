@@ -38,36 +38,56 @@
         }
         .profile-container {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         .profile-pic {
             width: 220px;
             height: 220px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #f97316;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 5px solid #f97316;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
             transition: transform 0.3s ease;
         }
         .profile-pic:hover {
             transform: scale(1.05);
         }
         @media (max-width: 768px) {
-            .profile-pic { width: 140px; height: 140px; }
+            .profile-pic { width: 160px; height: 160px; }
         }
         @media (max-width: 480px) {
-            .profile-pic { width: 120px; height: 120px; }
+            .profile-pic { width: 140px; height: 140px; }
+        }
+        .hero-text {
+            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        .hero-subtitle {
+            font-size: 2.25rem;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        .hero-license {
+            font-size: 1.75rem;
+            opacity: 0.95;
+            margin-top: 1.5rem;
+            font-weight: 500;
         }
         .btn-whatsapp, .btn-call {
-            padding: 0.8rem 1.8rem;
-            font-size: 1.25rem;
+            padding: 1rem 2rem;
+            font-size: 1.4rem;
             border-radius: 1rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
-            min-width: 180px;
+            min-width: 220px;
         }
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
@@ -75,7 +95,7 @@
         }
         .btn-whatsapp:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(37, 213, 102, 0.35);
+            box-shadow: 0 15px 30px rgba(37, 213, 102, 0.4);
         }
         .btn-call {
             background: linear-gradient(135deg, #f97316, #ea580c);
@@ -83,7 +103,7 @@
         }
         .btn-call:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.35);
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.4);
         }
         .card {
             background: rgba(30, 41, 59, 0.65);
@@ -186,39 +206,43 @@
                     class="profile-pic mx-auto">
             </div>
 
-            <div class="inline-block px-6 py-2 mb-8 rounded-full free-consult text-lg md:text-xl font-bold">
-                ייעוץ ראשוני – ללא עלות
+            <div class="inline-block px-8 py-3 mb-10 rounded-full free-consult text-xl md:text-2xl font-bold shadow-lg">
+                ייעוץ טלפוני – ללא עלות
             </div>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6 tracking-tight">
+
+            <h1 class="hero-title hero-text text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8 tracking-tight">
                 דימיטרי <span class="accent">דובוב</span>
             </h1>
-            <p class="text-2xl md:text-4xl lg:text-5xl font-medium mb-4 opacity-95">
+
+            <p class="hero-subtitle hero-text text-2xl md:text-4xl lg:text-5xl font-medium mb-4">
                 טכנאי גז מוסמך רמה 2
             </p>
-            <p class="text-xl md:text-2xl lg:text-3xl mb-2 opacity-90 leading-relaxed">
+
+            <p class="hero-text text-xl md:text-2.5xl lg:text-3xl mb-3 leading-relaxed">
                 בעל ניסיון של 25 שנה.
             </p>
-            <p class="text-xl md:text-2xl lg:text-3xl mb-2 opacity-90 leading-relaxed">
+            <p class="hero-text text-xl md:text-2.5xl lg:text-3xl mb-3 leading-relaxed">
                 התקנת נקודות גז, מחממי מים וכלל מכשירי הגז.
             </p>
-            <p class="text-xl md:text-2xl lg:text-3xl mb-2 opacity-90 leading-relaxed">
+            <p class="hero-text text-xl md:text-2.5xl lg:text-3xl mb-3 leading-relaxed">
                 איתור ותיקון דליפות גז. התקנת צנרת לדירות חדשות.
             </p>
-            <p class="text-xl md:text-2xl lg:text-3xl mb-16 opacity-90 leading-relaxed">
+            <p class="hero-license hero-text text-xl md:text-2xl lg:text-2.5xl mb-16">
                 מספר רישיון - 465370
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-6 md:gap-8">
+            <div class="flex flex-col sm:flex-row justify-center gap-6 md:gap-10">
                 <a href="https://wa.me/972537250109?text=היי%20דימיטרי%2C%20אני%20מעוניין%20בשירות..."
-                   class="btn-whatsapp px-8 py-5 rounded-xl text-xl font-bold shadow-xl flex items-center justify-center gap-3">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                   class="btn-whatsapp px-10 py-6 md:px-16 md:py-8 rounded-2xl text-2xl md:text-3xl lg:text-4xl font-bold shadow-2xl flex items-center justify-center gap-4">
+                    <svg class="w-9 h-9 md:w-11 md:h-11" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
                     שלח הודעה בוואטסאפ
                 </a>
+
                 <a href="tel:0537250109"
-                   class="btn-call px-8 py-5 rounded-xl text-xl font-bold shadow-xl flex items-center justify-center gap-3">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                   class="btn-call px-10 py-6 md:px-16 md:py-8 rounded-2xl text-2xl md:text-3xl lg:text-4xl font-bold shadow-2xl flex items-center justify-center gap-4">
+                    <svg class="w-9 h-9 md:w-11 md:h-11" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
                     התקשר 053-7250109
@@ -261,7 +285,7 @@
         </div>
     </section>
 
-    <!-- שירותים מרכזיים (בלי גז טבעי) -->
+    <!-- שירותים מרכזיים -->
     <section class="py-24 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-center text-white mb-16">השירותים המרכזיים</h2>
@@ -286,7 +310,7 @@
         </div>
     </section>
 
-    <!-- תעודת הרישיון + קלף הערים (בלי פתח תקווה) -->
+    <!-- תעודת הרישיון + קלף הערים -->
     <section class="py-20 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <div class="license-card mx-auto">
