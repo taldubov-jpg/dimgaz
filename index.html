@@ -43,7 +43,7 @@
         .profile-pic {
             width: 220px;
             height: 220px;
-            border-radius: 24px;          /* פינות מעוגלות מאוד – נראה יפה ומעוצב */
+            border-radius: 24px;          /* פינות מעוגלות יפות – לא עיגול */
             object-fit: cover;
             border: 4px solid #f97316;
             box-shadow: 0 15px 40px rgba(0,0,0,0.6);
@@ -53,12 +53,15 @@
             transform: scale(1.05);
             box-shadow: 0 25px 60px rgba(249, 115, 22, 0.4);
         }
+        .btn-whatsapp, .btn-call {
+            padding: 1rem 2rem;           /* קטנים וקצרים יותר */
+            font-size: 1.4rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            transition: all 0.3s ease;
-            padding: 1rem 2rem;           /* קטן יותר */
-            font-size: 1.4rem;            /* טקסט קצר יותר */
         }
         .btn-whatsapp:hover {
             transform: translateY(-3px);
@@ -67,9 +70,6 @@
         .btn-call {
             background: linear-gradient(135deg, #f97316, #ea580c);
             color: white;
-            transition: all 0.3s ease;
-            padding: 1rem 2rem;
-            font-size: 1.4rem;
         }
         .btn-call:hover {
             transform: translateY(-3px);
@@ -139,21 +139,21 @@
                 מעל 25 שנות ניסיון מקצועי – שירות אמין, בטיחותי ומדויק בכל רחבי הארץ
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-6 md:gap-10">
+            <div class="flex flex-col sm:flex-row justify-center gap-6 md:gap-8">
                 <a href="https://wa.me/972537250109?text=היי%20דימיטרי%2C%20אני%20מעוניין%20בשירות..."
-                   class="btn-whatsapp px-8 py-5 rounded-xl text-xl md:text-2xl font-bold shadow-xl flex items-center justify-center gap-3">
-                    <svg class="w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c... (אותו path של וואטסאפ)"/>
+                   class="btn-whatsapp px-8 py-5 rounded-xl text-xl font-bold shadow-xl flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c..."/>
                     </svg>
                     וואטסאפ
                 </a>
 
                 <a href="tel:0537250109"
-                   class="btn-call px-8 py-5 rounded-xl text-xl md:text-2xl font-bold shadow-xl flex items-center justify-center gap-3">
-                    <svg class="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                   class="btn-call px-8 py-5 rounded-xl text-xl font-bold shadow-xl flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28..."/>
                     </svg>
-                    התקשר 053-7250109
+                    התקשר
                 </a>
             </div>
         </div>
