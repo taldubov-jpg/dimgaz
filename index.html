@@ -81,6 +81,10 @@
             border: 1px solid rgba(249, 115, 22, 0.18);
             transition: all 0.4s ease;
             border-radius: 1.5rem;
+            min-height: 380px;                /* ← זה מה שמיישר את הגובה */
+            display: flex;                    /* ← מאפשר ליישר תוכן */
+            flex-direction: column;
+            justify-content: space-between;   /* ← מפזר את התוכן באופן אחיד */
         }
         .card:hover {
             transform: translateY(-12px);
@@ -226,7 +230,7 @@
         </div>
     </section>
 
-    <!-- העבודות שלי – 6 תמונות -->
+    <!-- העבודות שלי -->
     <section class="py-20 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-12">העבודות שלי</h2>
@@ -241,7 +245,7 @@
         </div>
     </section>
 
-    <!-- שירותים מרכזיים -->
+    <!-- שירותים מרכזיים – כאן תוקן הגובה -->
     <section class="py-24 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-center text-white mb-16">השירותים המרכזיים</h2>
