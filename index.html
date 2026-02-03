@@ -25,10 +25,28 @@
             font-family: 'Heebo', 'Rubik', sans-serif;
             background-color: #0f172a;
             color: white;
+            margin: 0;
+            padding: 0;
         }
         .hero-bg {
             background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.78)),
                         url('https://images.unsplash.com/photo-1621330396173-7c8ff2f5514e?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-pic {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f97316;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            z-index: 1000;
         }
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
@@ -85,8 +103,14 @@
 </head>
 <body class="antialiased">
 
+    <!-- תמונת בעל העסק בפינה שמאלית עליונה -->
+    <img 
+        src="pic1.jpg" 
+        alt="דימיטרי דובוב - טכנאי גז" 
+        class="profile-pic">
+
     <!-- Hero -->
-    <header class="hero-bg min-h-screen flex items-center justify-center py-20">
+    <header class="hero-bg">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <div class="inline-block px-6 py-2 mb-8 rounded-full free-consult text-lg md:text-xl font-bold">
                 ייעוץ ראשוני – ללא עלות
@@ -151,7 +175,7 @@
                 <div class="license-card mx-auto">
                     <img 
                         class="license-img"
-                        src="pic.jpg"
+                        src="pic.jpeg"
                         alt="רישיון טכנאי גז רמה 2 - דימיטרי דובוב">
                     <p class="text-center text-lg mt-4 text-gray-300">
                         רישיון טכנאי גז מוסמך רמה 2 – בתוקף
@@ -186,29 +210,8 @@
         </div>
     </section>
 
-    <!-- CTA סופי -->
-    <section class="py-24 bg-[#0f172a] border-t border-gray-800">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-10">
-                צריכים טכנאי גז מקצועי ואמין?
-            </h2>
-            <p class="text-xl md:text-2xl text-gray-300 mb-16 opacity-90">
-                מענה מהיר • מחיר הוגן • אחריות מלאה על כל עבודה
-            </p>
-
-            <div class="flex flex-col sm:flex-row justify-center gap-6 md:gap-10 max-w-xl mx-auto">
-                <a href="https://wa.me/972537250109?text=היי%20דימיטרי%2C%20אני%20מעוניין%20בשירות..."
-                   class="btn-whatsapp px-12 py-7 rounded-2xl text-3xl font-bold shadow-2xl flex items-center justify-center gap-4 hover:shadow-3xl transition-all">
-                    שלח הודעה בוואטסאפ
-                </a>
-
-                <a href="tel:0537250109"
-                   class="btn-call px-12 py-7 rounded-2xl text-3xl font-bold shadow-2xl flex items-center justify-center gap-4 hover:shadow-3xl transition-all">
-                    התקשר עכשיו 053-7250109
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- CTA סופי (רק 2 כפתורים, בלי CTA נוסף למטה) -->
+    <!-- אין כאן CTA נוסף – הכפתורים נשארו רק ב-Hero -->
 
     <!-- Footer -->
     <footer class="bg-black text-gray-400 py-12 text-center border-t border-gray-800">
