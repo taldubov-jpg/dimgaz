@@ -102,90 +102,150 @@
         }
         .profile-container {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
         .profile-pic {
-            width: 220px;
-            height: 220px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #f97316;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 14px 36px -6px rgba(0,0,0,0.7), 0 0 0 6px rgba(249,115,22,0.08);
             transition: transform 0.3s ease;
         }
-        .profile-pic:hover {
-            transform: scale(1.05);
-        }
+        .profile-pic:hover { transform: scale(1.04); }
         @media (max-width: 768px) {
-            .profile-pic { width: 140px; height: 140px; }
+            .profile-pic { width: 130px; height: 130px; }
         }
         @media (max-width: 480px) {
-            .profile-pic { width: 120px; height: 120px; }
+            .profile-pic { width: 115px; height: 115px; }
         }
         .hero-text {
-            text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.55);
         }
-        .hero-title {
-            font-size: 4.5rem;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-        .hero-subtitle {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        .hero-desc {
-            font-size: 1.6rem;
-            line-height: 1.4;
-            margin-bottom: 0.5rem;
-            opacity: 0.95;
-        }
-        .hero-license {
-            font-size: 1.5rem;
-            opacity: 0.9;
-            margin-top: 0.8rem;
+        /* Hero typography — visual hierarchy:
+           1. Profession  ← biggest, that's what people search for
+           2. Name        ← medium (it's not the search term)
+           3. Description ← small, supporting
+           4. License     ← fine print, accent color
+         */
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
             color: #f97316;
-            font-weight: 500;
+            padding: 0.45rem 1rem;
+            background: rgba(249,115,22,0.1);
+            border: 1px solid rgba(249,115,22,0.35);
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
         }
-        .btn-whatsapp, .btn-call {
-            padding: 0.8rem 1.8rem;
-            font-size: 1.25rem;
-            border-radius: 1rem;
-            transition: all 0.3s ease;
+        .hero-profession {
+            font-size: clamp(1.75rem, 5vw, 3rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .hero-name {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 600;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+        .hero-name .accent { color: #f97316; }
+        .hero-license {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #f97316;
+            background: rgba(15,23,42,0.6);
+            border: 1px solid rgba(249,115,22,0.3);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-desc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 2rem;
+            max-width: 32rem;
+            color: #e2e8f0;
+        }
+        .hero-desc-list li {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            line-height: 1.6;
+            padding: 0.35rem 0;
+            font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
-            min-width: 180px;
+            gap: 0.5rem;
+        }
+        .hero-desc-list li::before {
+            content: '';
+            display: inline-block;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #f97316;
+            flex-shrink: 0;
+        }
+
+        /* CTA buttons — clean, consistent sizing */
+        .btn-whatsapp, .btn-call {
+            padding: 0.95rem 1.75rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 0.85rem;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            min-width: 200px;
+            color: white;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-whatsapp::before, .btn-call::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+            border-radius: inherit;
         }
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 10px 24px -6px rgba(37,211,102,0.4);
         }
         .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(37, 213, 102, 0.35);
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.22) inset, 0 16px 30px -8px rgba(37,211,102,0.55);
         }
         .btn-call {
             background: linear-gradient(135deg, #f97316, #ea580c);
-            color: white;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 10px 24px -6px rgba(249,115,22,0.45);
         }
         .btn-call:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.35);
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.22) inset, 0 16px 30px -8px rgba(249,115,22,0.6);
         }
+        .btn-whatsapp svg, .btn-call svg { width: 18px; height: 18px; }
         .card {
             background: rgba(30, 41, 59, 0.65);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(249, 115, 22, 0.18);
             transition: all 0.4s ease;
-            border-radius: 1.5rem;
-            min-height: 380px;
+            border-radius: 1.25rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
         }
         .card:hover {
             transform: translateY(-12px);
@@ -223,8 +283,8 @@
             text-align: center;
         }
         .cities-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
             color: #f97316;
         }
         .cities-list {
@@ -448,7 +508,7 @@
 
     <!-- Hero -->
     <header class="hero-bg">
-        <div class="max-w-6xl mx-auto px-6 text-center">
+        <div class="max-w-4xl mx-auto px-6 text-center py-16">
             <div class="profile-container">
                 <img
                     src="pic1.jpg"
@@ -456,46 +516,37 @@
                     class="profile-pic mx-auto">
             </div>
 
-            <div class="inline-block px-8 py-3 mb-10 rounded-full free-consult text-xl md:text-2xl font-bold shadow-lg">
-                ייעוץ טלפוני – ללא עלות
-            </div>
+            <span class="hero-eyebrow">ייעוץ טלפוני · ללא עלות</span>
 
-            <h1 class="hero-title hero-text text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6 tracking-tight">
-                דימיטרי <span class="accent">דובוב</span>
+            <h1 class="hero-profession hero-text">
+                טכנאי גז מוסמך <span class="accent">רמה 2</span>
             </h1>
 
-            <p class="hero-subtitle hero-text text-2.5xl md:text-4xl lg:text-5xl font-medium mb-4">
-                טכנאי גז מוסמך רמה 2
+            <p class="hero-name">
+                דימיטרי <span class="accent">דובוב</span>
             </p>
 
-            <p class="hero-license hero-text text-xl md:text-2xl lg:text-2.5xl mb-8">
-                מספר רישיון - 465370
-            </p>
+            <div class="hero-license">מספר רישיון 465370 · 25+ שנות ניסיון</div>
 
-            <p class="hero-desc hero-text text-xl md:text-2.2xl lg:text-3xl mb-2">
-                בעל ניסיון של 25 שנה.
-            </p>
-            <p class="hero-desc hero-text text-xl md:text-2.2xl lg:text-3xl mb-2">
-                התקנת נקודות גז, מחממי מים וכלל מכשירי הגז.
-            </p>
-            <p class="hero-desc hero-text text-xl md:text-2.2xl lg:text-3xl mb-16">
-                איתור ותיקון דליפות גז. התקנת צנרת לדירות חדשות.
-            </p>
+            <ul class="hero-desc-list">
+                <li>התקנת מחממי מים, נקודות גז וכל מכשירי הגז</li>
+                <li>איתור ותיקון דליפות גז</li>
+                <li>תשתית גז לדירות חדשות</li>
+            </ul>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-6 md:gap-8">
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="https://wa.me/972537250109?text=היי%20דימיטרי%2C%20אני%20מעוניין%20בשירות..."
-                   class="btn-whatsapp px-8 py-5 rounded-xl text-xl font-bold shadow-xl flex items-center justify-center gap-3">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                   class="btn-whatsapp">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
-                    שלח הודעה בוואטסאפ
+                    שלחו הודעה בוואטסאפ
                 </a>
-                <a href="tel:0537250109"
-                   class="btn-call px-8 py-5 rounded-xl text-xl font-bold shadow-xl flex items-center justify-center gap-3">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <a href="tel:0537250109" class="btn-call">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
-                    התקשר 053-7250109
+                    התקשרו · 053-7250109
                 </a>
             </div>
         </div>
@@ -524,29 +575,29 @@
     </section>
 
     <!-- יתרונות (רק 2 כרטיסים עכשיו) -->
-    <section class="py-24 bg-[#0f172a]">
+    <section class="py-16 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-16 text-white">למה לבחור בי?</h2>
+            <h2 class="text-3xl md:text-4xl font-black mb-10 text-white">למה לבחור בי?</h2>
             <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
-                <div class="card p-10 md:p-12">
-                    <div class="text-7xl mb-8">🛡️</div>
-                    <h3 class="text-3xl font-bold mb-6 accent">בטיחות ללא פשרות</h3>
-                    <p class="text-xl text-gray-300 leading-relaxed">עמידה מלאה בתקני משרד העבודה והבריאות, בדיקות לחץ ואישורי בטיחות בכל עבודה.</p>
+                <div class="card p-6 md:p-8">
+                    <div class="text-5xl mb-4">🛡️</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 accent">בטיחות ללא פשרות</h3>
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed">עמידה מלאה בתקני משרד העבודה והבריאות, בדיקות לחץ ואישורי בטיחות בכל עבודה.</p>
                 </div>
-                <div class="card p-10 md:p-12">
-                    <div class="text-7xl mb-8">🏆</div>
-                    <h3 class="text-3xl font-bold mb-6 accent">ניסיון של יותר מ-25 שנה</h3>
-                    <p class="text-xl text-gray-300 leading-relaxed">אלפי לקוחות מרוצים – מבתים פרטיים, דירות, ועד מסעדות ועסקים גדולים.</p>
+                <div class="card p-6 md:p-8">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 accent">ניסיון של יותר מ-25 שנה</h3>
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed">אלפי לקוחות מרוצים – מבתים פרטיים, דירות, ועד מסעדות ועסקים גדולים.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- העבודות שלי — עם תיאורים לכל תמונה (טוב לאמון + טוב ל-SEO) -->
-    <section class="py-20 bg-[#0f172a]">
+    <section class="py-14 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">העבודות שלי</h2>
-            <p class="text-xl text-gray-400 mb-8">כל התקנה מבוצעת בתקני בטיחות מלאים, עם בדיקת לחץ ואישור</p>
+            <h2 class="text-3xl md:text-4xl font-black text-white mb-4">העבודות שלי</h2>
+            <p class="text-base md:text-lg text-gray-400 mb-8">כל התקנה מבוצעת בתקני בטיחות מלאים, עם בדיקת לחץ ואישור</p>
             <div class="works-gallery">
                 <div class="work-item">
                     <img src="pic2.jpg" alt="התקנת מחמם מים אלקטרה פאוור">
@@ -600,11 +651,11 @@
          מ-Google Business או מלקוחות — להחליף כאן עם הציטוטים
          האמיתיים והשמות (אפילו שם + עיר ראשונה זה מעולה).
          ════════════════════════════════════════════════════════ -->
-    <section class="py-20 bg-[#0f172a]">
+    <section class="py-14 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">מה לקוחות שלי אומרים</h2>
-                <p class="text-xl text-gray-400">חלק מהמשפחות שעבדתי איתן לאורך השנים</p>
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4">מה לקוחות שלי אומרים</h2>
+                <p class="text-base md:text-lg text-gray-400">חלק מהמשפחות שעבדתי איתן לאורך השנים</p>
             </div>
             <div class="reviews-grid">
                 <div class="review-card">
@@ -695,32 +746,32 @@
     </section>
 
     <!-- שירותים מרכזיים -->
-    <section class="py-24 bg-[#0f172a]">
+    <section class="py-16 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-center text-white mb-16">השירותים המרכזיים</h2>
+            <h2 class="text-3xl md:text-4xl font-black text-center text-white mb-16">השירותים המרכזיים</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-                <div class="card p-10 md:p-12">
-                    <h3 class="text-3xl font-bold mb-6 accent">התקנה ותיקון מחממי מים</h3>
-                    <p class="text-xl text-gray-300 leading-relaxed">מאקרו, רינייאר ועוד – התקנה מקצועית, תיקונים מהירים, החלפת חלקים, ניקוי ותחזוקה שוטפת.</p>
+                <div class="card p-6 md:p-8">
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 accent">התקנה ותיקון מחממי מים</h3>
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed">מאקרו, רינייאר ועוד – התקנה מקצועית, תיקונים מהירים, החלפת חלקים, ניקוי ותחזוקה שוטפת.</p>
                 </div>
-                <div class="card p-10 md:p-12">
-                    <h3 class="text-3xl font-bold mb-6 accent">התקנת כיריים, חגז, גריל ומוצרי גז</h3>
-                    <p class="text-xl text-gray-300 leading-relaxed">חיבור בטיחותי, התאמה מושלמת למטבח, בדיקת תקינות והדרכה.</p>
+                <div class="card p-6 md:p-8">
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 accent">התקנת כיריים, חגז, גריל ומוצרי גז</h3>
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed">חיבור בטיחותי, התאמה מושלמת למטבח, בדיקת תקינות והדרכה.</p>
                 </div>
-                <div class="card p-10 md:p-12">
-                    <h3 class="text-3xl font-bold mb-6 accent">התקנת תשתית גז ביתית</h3>
-                    <p class="text-xl text-gray-300 leading-relaxed">תכנון, צנרת פנימית, חיבור לגז, אישורים ותקנים מלאים.</p>
+                <div class="card p-6 md:p-8">
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 accent">התקנת תשתית גז ביתית</h3>
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed">תכנון, צנרת פנימית, חיבור לגז, אישורים ותקנים מלאים.</p>
                 </div>
-                <div class="card p-10 md:p-12">
-                    <h3 class="text-3xl font-bold mb-6 accent">איתור ותיקון דליפות גז</h3>
-                    <p class="text-xl text-gray-300 leading-relaxed">גלאי מתקדם, איתור מדויק, תיקון מיידי ושירות חירום זמין.</p>
+                <div class="card p-6 md:p-8">
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 accent">איתור ותיקון דליפות גז</h3>
+                    <p class="text-base md:text-lg text-gray-300 leading-relaxed">גלאי מתקדם, איתור מדויק, תיקון מיידי ושירות חירום זמין.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- תעודת הרישיון + קלף הערים -->
-    <section class="py-20 bg-[#0f172a]">
+    <section class="py-14 bg-[#0f172a]">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <div class="license-card mx-auto">
                 <img
@@ -733,7 +784,7 @@
             </div>
 
             <div class="cities-card">
-                <h3 class="text-2xl font-bold mb-6">אזורים שאני נותן בהם שירות</h3>
+                <h3 class="text-xl font-bold mb-5">אזורים שאני נותן בהם שירות</h3>
                 <div class="cities-list">
                     <span class="city-item">רחובות</span>
                     <span class="city-item">נס ציונה</span>
